@@ -18,11 +18,9 @@ export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 const ThemeContextProvider: FC<ThemeContextProviderType> = ({ children }) => {
   const [mode, setMode] = useState<PaletteMode>("dark");
 
-  const colorMode = useMemo(() => (
-    {
-      toggleColorMode: () => { setMode((prevMode) => (prevMode === "light" ? "dark" : "light")); },
-    }
-  ), []);
+  const colorMode = useMemo(() => ({
+    toggleColorMode: () => setMode((prevMode) => (prevMode === "light" ? "dark" : "light")),
+  }), []);
 
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 

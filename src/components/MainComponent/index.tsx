@@ -1,45 +1,40 @@
 // vendor imports
 import React, { FC, useState } from "react";
-import {
-  Container,
-} from "@mui/material";
+import { Box } from "@mui/material";
 
 // locale imports
+// constants
+import text from "../../constants/text";
 // components
-import HeaderComponent from "../HeaderComponent";
-import SettingsComponent from "../SettingsComponent";
-import SnackComponent from "../SnackComponent";
+import CheckboxComponent from "../CheckboxComponent";
+import TaskListTitleComponent from "../TaskListTitleComponent";
+// styles
+import "./styles.css";
 
 const MainComponent: FC = () => {
-  const [isSettingShow, setIsSettingsShow] = useState(false);
-  const [isSnackShow, setIsSnackShow] = useState(false);
+  const [isShowTodayTasks, setIsShowTodayTasks] = useState(true);
 
   return (
-    <Container
-      fixed
-      maxWidth="xs"
-    >
-      <HeaderComponent
-        setIsSettingsShow={setIsSettingsShow}
-      />
+    <div>
+      <Box
+        sx={{
+          width: "100%",
+          height: "42px",
+          display: "flex",
+          alignItems: "center",
+          paddingLeft: "36px",
+          gap: "9px",
+          boxSizing: "border-box",
+        }}
+      >
+        <CheckboxComponent
+          isChecked={isShowTodayTasks}
+          setIsChecked={setIsShowTodayTasks}
+        />
 
-      {/* modals */}
-
-      <SettingsComponent
-        isSettingShow={isSettingShow}
-        setIsSettingsShow={setIsSettingsShow}
-      />
-
-      <SnackComponent
-        autoHideDuration={3000}
-        isShow={isSnackShow}
-        snackSeverity="success"
-        snackText="snackText"
-        snackMessage="snackMessage"
-        snackAction="snackAction"
-        handleSnackClose={() => { setIsSnackShow(!isSnackShow); }}
-      />
-    </Container>
+        <TaskListTitleComponent title={text.todayTasks} />
+      </Box>
+    </div>
   );
 };
 

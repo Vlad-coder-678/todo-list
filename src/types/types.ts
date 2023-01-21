@@ -20,9 +20,20 @@ interface ThemeContextProviderType {
   children: ReactNode,
 }
 
+interface HeaderComponentPropsType {
+  setIsSettingsShow: Dispatch<SetStateAction<boolean>>,
+}
+
+interface CheckboxComponentPropsType {
+  isChecked: boolean,
+  setIsChecked: Dispatch<SetStateAction<boolean>>,
+}
+
 export type {
   ToDo,
   ToDoList,
   ToDoListContextType,
   ThemeContextProviderType,
+  HeaderComponentPropsType,
+  CheckboxComponentPropsType,
 };

@@ -1,0 +1,23 @@
+.MuiCheckbox-root {
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  padding: 3.5px;
+  box-sizing: border-box;
+}
+
+.MuiCheckbox-root:hover {
+  background-color: #c2c2c2;
+}
+
+.MuiCheckbox-root .MuiSvgIcon-root {
+  font-size: 16px;
+  color: #232323;
+}
+
+.MuiCheckbox-root:hover .MuiSvgIcon-root {
+  color: #fff;
+}
+
+.MuiCheckbox-root .MuiSvgIcon-root.unchecked {
+  opacity: 0;
+}

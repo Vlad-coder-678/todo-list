@@ -8,8 +8,8 @@ import { Drawer } from "@mui/material";
 import ToggleThemeModeComponent from "./ToggleThemeModeComponent";
 
 interface SettingsPropsType {
-  isSettingShow: boolean
-  setIsSettingsShow: Dispatch<SetStateAction<boolean>>
+  isSettingShow: boolean,
+  setIsSettingsShow: Dispatch<SetStateAction<boolean>>,
 };
 
 const SettingsComponent: FC<SettingsPropsType> = ({
@@ -20,7 +20,7 @@ const SettingsComponent: FC<SettingsPropsType> = ({
     <Drawer
       anchor="right"
       open={isSettingShow}
-      onClose={() => { setIsSettingsShow(false); }}
+      onClose={() => setIsSettingsShow(false)}
       variant="temporary"
     >
       <ToggleThemeModeComponent />

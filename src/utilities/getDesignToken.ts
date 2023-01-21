@@ -10,6 +10,16 @@ const getDesignTokens = (mode: PaletteMode) => ({
     mode,
     ...(mode === "light" ? lightThemePalette : darkThemePalette),
   },
+  typography: {
+    h1: {
+      fontSize: "36px",
+      lineHeight: 1.12,
+      fontWeight: 700,
+    },
+    h2: {
+      fontSize: "36px",
+    },
+  },
 });
 
 export default getDesignTokens;

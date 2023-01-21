@@ -1,0 +1,10 @@
+.MuiAppBar-root {
+  box-shadow: none;
+}
+  
+.MuiToolbar-root {
+  height: 70px;
+  box-sizing: border-box;
+  padding-left: 36px;
+  padding-right: 28px;
+}
