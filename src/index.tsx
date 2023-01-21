@@ -16,7 +16,7 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 // styles
-import "./styles/index.css";
+import "./index.css";
 
 const app = ReactDOM.createRoot(
   document.getElementById("app") as HTMLElement,

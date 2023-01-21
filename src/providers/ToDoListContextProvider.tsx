@@ -9,16 +9,20 @@ import React, {
 // mock
 import toDoListMock from "../mock/todo-list-mock";
 // types
-import { ToDoListContextType } from "../types/types";
+import { ToDo, ToDoListContextType } from "../types/types";
 
-const ToDoListContext = createContext<ToDoListContextType | null>(null);
+export const ToDoListContext = createContext<ToDoListContextType | null>(null);
 
 const ToDoListContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [toDoList, setToDoList] = useState(toDoListMock);
 
+  const updateToDoList = (task: ToDo) => {
+    setToDoList(state => [...state, task]);
+  };
+
   const value = {
     toDoList,
-    setToDoList,
+    updateToDoList,
   };
 
   return (

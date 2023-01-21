@@ -13,7 +13,7 @@ type ToDoList = ToDo[];
 
 interface ToDoListContextType {
   toDoList: ToDoList,
-  setToDoList: Dispatch<SetStateAction<ToDoList>>,
+  updateToDoList: (task: ToDo) => void,
 }
 
 interface ThemeContextProviderType {
