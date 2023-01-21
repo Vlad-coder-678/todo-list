@@ -1,5 +1,7 @@
 # ToDo List App
 
+![app view](/public/ToDo List App View.jog)
+
 ### Макет
 
 https://www.figma.com/file/C8X04jX085jFMQsEWTkoZD/To-Do-List-App-UI-(Community)-(Copy)?node-id=1%3A17
