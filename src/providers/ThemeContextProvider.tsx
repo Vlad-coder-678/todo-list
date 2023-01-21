@@ -13,7 +13,7 @@ import { ThemeContextProviderType } from "../types/types";
 // utilities
 import getDesignTokens from "../utilities/getDesignToken";
 
-const ColorModeContext = createContext({ toggleColorMode: () => {} });
+export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 const ThemeContextProvider: FC<ThemeContextProviderType> = ({ children }) => {
   const [mode, setMode] = useState<PaletteMode>("dark");

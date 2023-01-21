@@ -8,7 +8,7 @@ import lightThemePalette from "../constants/lightThemePalette";
 const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
     mode,
-    ...(mode === "light" ? darkThemePalette : lightThemePalette),
+    ...(mode === "light" ? lightThemePalette : darkThemePalette),
   },
 });
 

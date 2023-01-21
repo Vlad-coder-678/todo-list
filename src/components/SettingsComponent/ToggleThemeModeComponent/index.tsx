@@ -1,12 +1,14 @@
 // vendor imports
-import React, { createContext, useContext } from "react";
+import React, { useContext } from "react";
 import { IconButton, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+
+// local imports
+// providers
+import { ColorModeContext } from "../../../providers/ThemeContextProvider";
 // icons
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-
-const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 function ToggleThemeModeComponent () {
   const theme = useTheme();
@@ -27,9 +29,7 @@ function ToggleThemeModeComponent () {
     >
       {theme.palette.mode} mode
       <IconButton
-        sx={{ ml: 1 }}
         onClick={colorMode.toggleColorMode}
-        color="inherit"
       >
         {theme.palette.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
       </IconButton>

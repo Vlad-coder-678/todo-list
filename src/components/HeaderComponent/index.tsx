@@ -14,7 +14,7 @@ import { Settings } from "@mui/icons-material";
 import text from "../../constants/text";
 
 interface HeaderComponentType {
-  setIsSettingsShow: Dispatch<SetStateAction<boolean>>
+  setIsSettingsShow: Dispatch<SetStateAction<boolean>>,
 }
 
 const HeaderComponent: FC<HeaderComponentType> = ({
@@ -23,8 +23,6 @@ const HeaderComponent: FC<HeaderComponentType> = ({
   return (
     <AppBar
       position="fixed"
-      color="primary"
-      enableColorOnDark
     >
       <Toolbar>
         <Typography

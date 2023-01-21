@@ -5,7 +5,7 @@ const TODO_LIST_MOCK = [
     description: "Lorem Ipsum Dolor Sit met, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!",
     priority: "high",
     isDone: false,
-    startDate: 1,
+    startDate: "2022-07-07",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const TODO_LIST_MOCK = [
     description: "Lorem Ipsum Dolor Sit met, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!",
     priority: "normal",
     isDone: false,
-    startDate: 1,
+    startDate: "2022-07-07",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const TODO_LIST_MOCK = [
     description: "Lorem Ipsum Dolor Sit met, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!",
     priority: "low",
     isDone: true,
-    startDate: 1,
+    startDate: "2022-07-07",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const TODO_LIST_MOCK = [
     description: "Lorem Ipsum Dolor Sit met, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!",
     priority: "low",
     isDone: false,
-    startDate: 2,
+    startDate: "2022-07-08",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const TODO_LIST_MOCK = [
     description: "Lorem Ipsum Dolor Sit met, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!",
     priority: "low",
     isDone: false,
-    startDate: 2,
+    startDate: "2022-07-08",
   },
   {
     id: 6,
@@ -45,7 +45,31 @@ const TODO_LIST_MOCK = [
     description: "Lorem Ipsum Dolor Sit met, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!",
     priority: "low",
     isDone: false,
-    startDate: 3,
+    startDate: "2022-07-08",
+  },
+  {
+    id: 7,
+    title: "Title",
+    description: "Lorem Ipsum Dolor Sit met, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!",
+    priority: "low",
+    isDone: false,
+    startDate: "2022-07-09",
+  },
+  {
+    id: 8,
+    title: "Title",
+    description: "Lorem Ipsum Dolor Sit met, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!",
+    priority: "low",
+    isDone: false,
+    startDate: "2022-07-10",
+  },
+  {
+    id: 9,
+    title: "Title",
+    description: "Lorem Ipsum Dolor Sit met, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!",
+    priority: "low",
+    isDone: false,
+    startDate: "2022-07-11",
   },
 ];
 

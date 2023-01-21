@@ -1,23 +1,23 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 interface ToDo {
-  id: number
-  title: string
-  description: string
-  priority: string
-  isDone: boolean
-  startDate: number
+  id: number,
+  title: string,
+  description: string,
+  priority: string,
+  isDone: boolean,
+  startDate: string,
 }
 
 type ToDoList = ToDo[];
 
 interface ToDoListContextType {
-  toDoList: ToDoList
-  setToDoList: Dispatch<SetStateAction<ToDoList>>
+  toDoList: ToDoList,
+  setToDoList: Dispatch<SetStateAction<ToDoList>>,
 }
 
 interface ThemeContextProviderType {
-  children: ReactNode
+  children: ReactNode,
 }
 
 export type {

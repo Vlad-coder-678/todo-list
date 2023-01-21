@@ -1,5 +1,5 @@
 const text = {
-  mainTitle: "ToDo",
+  mainTitle: "To Do",
 };
 
 export default text;
