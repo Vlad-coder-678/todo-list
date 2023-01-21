@@ -1,6 +1,6 @@
 # ToDo List App
 
-![app view](https://github.com/Vlad-coder-678/todo-list/public/ToDo_List_App_View.jpg)
+![app view](https://github.com/Vlad-coder-678/todo-list/blob/main/public/ToDo_List_App_View.jpg)
 
 ### Макет
 
