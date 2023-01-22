@@ -1,19 +1,27 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
-interface ToDo {
+interface TaskType {
   id: number,
   title: string,
   description: string,
   priority: string,
   isDone: boolean,
-  startDate: string,
 }
 
-type ToDoList = ToDo[];
+interface TaskListType {
+  [date: string]: TaskType[],
+}
 
-interface ToDoListContextType {
-  toDoList: ToDoList,
-  updateToDoList: (task: ToDo) => void,
+interface updateTaskListPropsType {
+  date: string,
+  id: number,
+  property: string,
+  value: string | number | boolean,
+}
+
+interface TaskListContextType {
+  taskList: TaskListType,
+  updateTaskList: (props: updateTaskListPropsType) => void,
 }
 
 interface ThemeContextProviderType {
@@ -30,10 +38,11 @@ interface CheckboxComponentPropsType {
 }
 
 export type {
-  ToDo,
-  ToDoList,
-  ToDoListContextType,
+  TaskType,
+  TaskListType,
+  TaskListContextType,
   ThemeContextProviderType,
   HeaderComponentPropsType,
   CheckboxComponentPropsType,
+  updateTaskListPropsType,
 };

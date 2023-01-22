@@ -5,7 +5,7 @@ const darkThemePalette = {
   },
   primary: {
     main: "#222",
-    light: "#111",
+    light: "#282828",
     dark: "#333",
     contrastText: "#f4f4f4",
   },

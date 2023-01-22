@@ -7,7 +7,7 @@ import { StyledEngineProvider } from "@mui/material";
 import reportWebVitals from "./reportWebVitals";
 // providers
 import ThemeContextProvider from "./providers/ThemeContextProvider";
-import ToDoListContextProvider from "./providers/ToDoListContextProvider";
+import TaskListContextProvider from "./providers/TaskListContextProvider";
 // components
 import App from "./App";
 // fonts
@@ -26,9 +26,9 @@ app.render(
   <StrictMode>
     <StyledEngineProvider injectFirst>
       <ThemeContextProvider>
-        <ToDoListContextProvider>
+        <TaskListContextProvider>
           <App />
-        </ToDoListContextProvider>
+        </TaskListContextProvider>
       </ThemeContextProvider>
     </StyledEngineProvider>
   </StrictMode>,

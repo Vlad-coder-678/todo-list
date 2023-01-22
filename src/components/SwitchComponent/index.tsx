@@ -1,86 +1,55 @@
-import { FC } from "react";
-import Switch, { SwitchProps } from "@mui/material/Switch";
-import { styled } from "@mui/material/styles";
+import React from "react";
+import { styled, Switch, SwitchProps } from "@mui/material";
 
-export const Android12Switch = styled(Switch)(({ theme }) => ({
-  padding: 8,
-  "& .MuiSwitch-track": {
-    borderRadius: 22 / 2,
-    "&:before, &:after": {
-      content: "\"\"",
-      position: "absolute",
-      top: "50%",
-      transform: "translateY(-50%)",
-      width: 16,
-      height: 16,
-    },
-    "&:before": {
-      backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24"><path fill="${encodeURIComponent(
-        theme.palette.getContrastText(theme.palette.primary.main),
-      )}" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg>')`,
-      left: 12,
-    },
-    "&:after": {
-      backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24"><path fill="${encodeURIComponent(
-        theme.palette.getContrastText(theme.palette.primary.main),
-      )}" d="M19,13H5V11H19V13Z" /></svg>')`,
-      right: 12,
-    },
-  },
-  "& .MuiSwitch-thumb": {
-    boxShadow: "none",
-    width: 16,
-    height: 16,
-    margin: 2,
-  },
-}));
-
-const SwitchComponent: FC = styled((props: SwitchProps) => (
-  // eslint-disable-next-line react/react-in-jsx-scope
-  <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+const SwitchComponent = styled((props: SwitchProps) => (
+  <Switch {...props} />
 ))(({ theme }) => ({
-  width: 42,
-  height: 26,
+  width: 50,
+  height: 28,
   padding: 0,
+  borderRadius: 26,
+  overflow: "hidden",
   "& .MuiSwitch-switchBase": {
     padding: 0,
     margin: 2,
     transitionDuration: "300ms",
+    // checked
     "&.Mui-checked": {
-      transform: "translateX(16px)",
-      color: "#fff",
+      transform: "translateX(21px)",
+      color: theme.palette.text.primary,
+      // трек checked
       "& + .MuiSwitch-track": {
-        backgroundColor: "#2ECA45",
+        backgroundColor: theme.palette.success.main,
         opacity: 1,
         border: 0,
       },
-      "&.Mui-disabled + .MuiSwitch-track": {
-        opacity: 0.5,
+      // ползунок checked
+      "& .MuiSwitch-thumb::before": {
+        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="${encodeURIComponent(theme.palette.text.secondary)}" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg>')`,
       },
     },
-    "&.Mui-focusVisible .MuiSwitch-thumb": {
-      color: "#33cf4d",
-      border: "6px solid #fff",
-    },
-    "&.Mui-disabled .MuiSwitch-thumb": {
-      color: theme.palette.grey[600],
-    },
-    "&.Mui-disabled + .MuiSwitch-track": {
-      opacity: 0.3,
-    },
   },
+  // трек
+  "& .MuiSwitch-track": {
+    backgroundColor: theme.palette.info.main,
+    opacity: 1,
+    transitionDuration: "300ms",
+  },
+  // ползунок
   "& .MuiSwitch-thumb": {
     boxSizing: "border-box",
-    width: 22,
-    height: 22,
-  },
-  "& .MuiSwitch-track": {
-    borderRadius: 26 / 2,
-    backgroundColor: "#E9E9EA",
-    opacity: 1,
-    transition: theme.transitions.create(["background-color"], {
-      duration: 500,
-    }),
+    width: 25,
+    height: 25,
+    "&:before": {
+      content: "\"\"",
+      position: "absolute",
+      top: "50%",
+      transform: "translateY(-50%)",
+      width: 18,
+      height: 18,
+      backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z" fill="${encodeURIComponent(theme.palette.text.secondary)}"/></svg>')`,
+      left: 4,
+    },
   },
 }));
 

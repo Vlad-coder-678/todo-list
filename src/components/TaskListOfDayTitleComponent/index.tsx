@@ -5,7 +5,7 @@ interface TaskListTitleComponentPropsType {
   title: string,
 };
 
-const TaskListTitleComponent: FC<TaskListTitleComponentPropsType> = ({ title }) => {
+const TaskListOfDayTitleComponent: FC<TaskListTitleComponentPropsType> = ({ title }) => {
   const theme = useTheme();
 
   return (
@@ -25,4 +25,4 @@ const TaskListTitleComponent: FC<TaskListTitleComponentPropsType> = ({ title }) 
   );
 };
 
-export default TaskListTitleComponent;
+export default TaskListOfDayTitleComponent;
