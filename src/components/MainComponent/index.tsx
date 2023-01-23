@@ -8,6 +8,7 @@ import { TaskListContext } from "../../providers/TaskListContextProvider";
 // components
 import TodayTaskListComponent from "../TodayTaskListComponent";
 import RestTaskListComponent from "../RestTaskListComponent";
+import TaskListOfDayTitleComponent from "../TaskListOfDayTitleComponent";
 // utilities
 import getTodayDate from "../../utilities/getTodayDate";
 // types
@@ -30,10 +31,12 @@ const MainComponent: FC<{ openFullDescriptionModal: ({ date, id }: { date: strin
         padding: "0 20px",
       }}
     >
-      <TodayTaskListComponent
+      {todayTaskList.length > 0
+        ? (<TodayTaskListComponent
         todayTaskList={todayTaskList}
         openFullDescriptionModal={openFullDescriptionModal}
-      />
+      />)
+        : (<TaskListOfDayTitleComponent title="Today nothing to do"/>)}
 
       {Object.entries(restTaskLists)?.map(([date, taskList], index) => (
         <RestTaskListComponent

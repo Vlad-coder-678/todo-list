@@ -6,7 +6,13 @@ const StyledContainer = styled((props: ContainerProps) => (<Container {...props}
   height: "844px",
   borderRadius: "30px",
   backgroundColor: theme.palette.background.default,
-  overflow: "hidden",
+  overflow: "scroll",
+  "-ms-overflow-style": "none",
+  scrollbarWidth: "none",
+  paddingBottom: "30px",
+  "&::-webkit-scrollbar": {
+    display: "none",
+  },
   "@media(min-width: 600px)": {
     minWidth: "auto",
     padding: "0",

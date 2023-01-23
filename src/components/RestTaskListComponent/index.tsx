@@ -18,7 +18,8 @@ interface RestTaskListComponentPropTypes {
 const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskList, index, openFullDescriptionModal }) => {
   const theme = useTheme();
 
-  return (
+  return taskList.length > 0
+    ? (
     <StyledRestTaskListAccordion key={date}>
       <StyledRestTaskListAccordionSummary
         expandIcon={(<ExpandCircleDown />)}
@@ -35,7 +36,7 @@ const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskL
         />
       </StyledRestTaskListAccordionSummary>
       <StyledRestTaskListAccordionDetails>
-        {taskList?.map(({ title, description, isDone, priority, id }) => (
+        {taskList.map(({ title, description, isDone, priority, id }) => (
           <TaskCardComponent
             key={`${date} ${id}`}
             date={date}
@@ -49,7 +50,8 @@ const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskL
         ))}
       </StyledRestTaskListAccordionDetails>
     </StyledRestTaskListAccordion>
-  );
+      )
+    : null;
 };
 
 export default RestTaskListComponent;

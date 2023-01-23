@@ -30,16 +30,13 @@ const TaskListContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   const removeTask = ({ date, id }: { date: string; id: number }) => {
-    console.log("date, id", date, id);
     setTaskList((state) => {
       const newTaskListOfDate = (state as TaskListType)[date]?.filter((task) => (task.id !== id))
         .map((task, index) => ({ ...task, id: index + 1 }));
-      console.log("newTaskListOfDate", newTaskListOfDate);
 
       return ({ ...state, [date]: newTaskListOfDate });
     });
   };
-  console.log("taskList", taskList);
 
   const value = {
     taskList,
