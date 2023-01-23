@@ -22,7 +22,7 @@ const StylesCheckbox = styled((props: CheckboxProps) => (
   },
   "& .MuiSvgIcon-root": {
     fontSize: "16px",
-    color: "#232323",
+    color: theme.palette.background.default,
     "&.unchecked": {
       opacity: 0,
     },

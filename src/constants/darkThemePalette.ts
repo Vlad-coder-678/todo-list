@@ -1,7 +1,7 @@
 const darkThemePalette = {
   common: {
     black: "#000",
-    white: "#fff",
+    white: "#f4f4f4",
   },
   primary: {
     main: "#222",

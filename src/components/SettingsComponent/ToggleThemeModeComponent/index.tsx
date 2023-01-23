@@ -20,19 +20,19 @@ function ToggleThemeModeComponent () {
         display: "flex",
         width: "100%",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         bgcolor: "background.default",
         color: "text.primary",
         borderRadius: 1,
         p: 3,
       }}
     >
-      {theme.palette.mode} mode
       <IconButton
         onClick={colorMode.toggleColorMode}
       >
-        {theme.palette.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+        {theme.palette.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon color="action" />}
       </IconButton>
+      {`${theme.palette.mode} mode`.toUpperCase()}
     </Box>
   );
 }

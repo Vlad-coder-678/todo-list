@@ -1,19 +1,19 @@
 const lightThemePalette = {
   common: {
     black: "#000",
-    white: "#fff",
+    white: "#f4f4f4",
   },
   primary: {
-    main: "#222",
-    light: "#111",
-    dark: "#333",
-    contrastText: "#f4f4f4",
+    main: "#c4c4c4",
+    light: "#c1c1c1",
+    dark: "#c3c3c3",
+    contrastText: "#222",
   },
   secondary: {
-    main: "#222",
-    light: "#111",
-    dark: "#333",
-    contrastText: "#f4f4f4",
+    main: "#c4c4c4",
+    light: "#c1c1c1",
+    dark: "#c3c3c3",
+    contrastText: "#222",
   },
   error: {
     main: "#fe0000",
@@ -40,18 +40,17 @@ const lightThemePalette = {
     contrastText: "#f4f4f4",
   },
   text: {
-    primary: "#f4f4f4",
+    primary: "#222",
     secondary: "#a9a9a9",
     disabled: "#222",
-    icon: "#333",
   },
   divider: "rgba(255, 255, 255, 0.12)",
   background: {
-    paper: "#222",
-    default: "#333",
+    paper: "#ccc",
+    default: "#ddd",
   },
   action: {
-    active: "#fff",
+    active: "#000",
     hover: "rgba(0, 0, 0, 0.08)",
     hoverOpacity: 0.08,
     selected: "rgba(0, 0, 0, 0.08)",

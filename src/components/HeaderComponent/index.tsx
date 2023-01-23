@@ -15,9 +15,8 @@ import text from "../../constants/text";
 // types
 import { HeaderComponentPropsType } from "../../types/types";
 
-const HeaderComponent: FC<HeaderComponentPropsType> = ({ setIsSettingsShow }) => {
+const HeaderComponent: FC<HeaderComponentPropsType> = ({ handleClick }) => {
   const theme = useTheme();
-  const handleClickSettingsButton = () => setIsSettingsShow(true);
 
   return (
     <AppBar
@@ -57,7 +56,7 @@ const HeaderComponent: FC<HeaderComponentPropsType> = ({ setIsSettingsShow }) =>
           edge="start"
           color="inherit"
           aria-label="menu"
-          onClick={handleClickSettingsButton}
+          onClick={handleClick}
           sx={{ paddingRight: "14px" }}
         >
           <Settings

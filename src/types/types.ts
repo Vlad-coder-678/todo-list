@@ -1,4 +1,4 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
+import { MouseEvent, ReactNode } from "react";
 
 interface TaskType {
   id: number,
@@ -29,7 +29,7 @@ interface ThemeContextProviderType {
 }
 
 interface HeaderComponentPropsType {
-  setIsSettingsShow: Dispatch<SetStateAction<boolean>>,
+  handleClick: (event: MouseEvent<HTMLElement>) => void,
 }
 
 export type {

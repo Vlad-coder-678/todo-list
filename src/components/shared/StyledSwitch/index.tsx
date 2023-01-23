@@ -21,7 +21,7 @@ const StyledSwitch = styled((props: SwitchProps) => (
     // checked
     "&.Mui-checked": {
       transform: "translateX(21px)",
-      color: theme.palette.text.primary,
+      color: theme.palette.common.white,
       // трек checked
       "& + .MuiSwitch-track": {
         backgroundColor: theme.palette.success.main,

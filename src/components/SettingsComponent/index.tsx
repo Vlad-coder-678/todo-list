@@ -1,30 +1,27 @@
 // vendor imports
-import React, {
-  Dispatch,
-  FC,
-  SetStateAction,
-} from "react";
-import { Drawer } from "@mui/material";
+import React, { FC } from "react";
 import ToggleThemeModeComponent from "./ToggleThemeModeComponent";
+import StyledMenu from "../shared/StyledMenu";
 
 interface SettingsPropsType {
-  isSettingShow: boolean,
-  setIsSettingsShow: Dispatch<SetStateAction<boolean>>,
+  anchorEl: HTMLElement | null,
+  open: boolean,
+  onClose: () => void,
 };
 
 const SettingsComponent: FC<SettingsPropsType> = ({
-  isSettingShow,
-  setIsSettingsShow,
+  anchorEl,
+  open,
+  onClose,
 }) => {
   return (
-    <Drawer
-      anchor="right"
-      open={isSettingShow}
-      onClose={() => setIsSettingsShow(false)}
-      variant="temporary"
+    <StyledMenu
+      open={open}
+      onClose={onClose}
+      anchorEl={anchorEl}
     >
       <ToggleThemeModeComponent />
-    </Drawer>
+    </StyledMenu>
   );
 };
 

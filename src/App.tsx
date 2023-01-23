@@ -1,5 +1,5 @@
 // vendor imports
-import React, { FC, useState } from "react";
+import React, { FC, MouseEvent, useState } from "react";
 
 // locale imports
 // components
@@ -10,21 +10,28 @@ import SnackComponent from "./components/shared/SnackComponent";
 import StyledContainer from "./components/shared/StyledContainer";
 
 const App: FC = () => {
-  const [isSettingShow, setIsSettingsShow] = useState(false);
   const [isSnackShow, setIsSnackShow] = useState(false);
+  const [showMenuButtonAnchor, setShowMenuButtonAnchor] = useState<null | HTMLElement>(null);
+  const isSettingShow = Boolean(showMenuButtonAnchor);
+
+  const handleClick = (event: MouseEvent<HTMLElement>) => {
+    setShowMenuButtonAnchor(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setShowMenuButtonAnchor(null);
+  };
 
   return (
     <StyledContainer>
-      <HeaderComponent
-        setIsSettingsShow={setIsSettingsShow}
-      />
-
+      <HeaderComponent handleClick={handleClick} />
       <MainComponent />
 
       {/* modals */}
       <SettingsComponent
-        isSettingShow={isSettingShow}
-        setIsSettingsShow={setIsSettingsShow}
+        anchorEl={showMenuButtonAnchor}
+        open={isSettingShow}
+        onClose={handleClose}
       />
 
       <SnackComponent
