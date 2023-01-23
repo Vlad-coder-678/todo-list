@@ -12,9 +12,10 @@ interface RestTaskListComponentPropTypes {
   date: string,
   taskList: TaskType[],
   index: number,
+  openFullDescriptionModal: ({ date, id }: { date: string; id: number }) => void,
 }
 
-const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskList, index }) => {
+const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskList, index, openFullDescriptionModal }) => {
   const theme = useTheme();
 
   return (
@@ -43,6 +44,7 @@ const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskL
             description={description}
             isDone={isDone}
             priorityColor={getPriorityColor(priority)}
+            openFullDescriptionModal={openFullDescriptionModal}
           />
         ))}
       </StyledRestTaskListAccordionDetails>

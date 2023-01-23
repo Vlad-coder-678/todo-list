@@ -13,7 +13,7 @@ import getTodayDate from "../../utilities/getTodayDate";
 // types
 import { TaskListType } from "../../types/types";
 
-const MainComponent: FC = () => {
+const MainComponent: FC<{ openFullDescriptionModal: ({ date, id }: { date: string; id: number }) => void }> = ({ openFullDescriptionModal }) => {
   const taskListContext = useContext(TaskListContext);
 
   const todayDate = getTodayDate();
@@ -30,10 +30,19 @@ const MainComponent: FC = () => {
         padding: "0 20px",
       }}
     >
-      <TodayTaskListComponent todayTaskList={todayTaskList} />
+      <TodayTaskListComponent
+        todayTaskList={todayTaskList}
+        openFullDescriptionModal={openFullDescriptionModal}
+      />
 
       {Object.entries(restTaskLists)?.map(([date, taskList], index) => (
-        <RestTaskListComponent key={date} date={date} taskList={taskList} index={index} />
+        <RestTaskListComponent
+          key={date}
+          date={date}
+          taskList={taskList}
+          index={index}
+          openFullDescriptionModal={openFullDescriptionModal}
+        />
       ))}
     </Box>
   );

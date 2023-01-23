@@ -19,7 +19,12 @@ import {
 import getPriorityColor from "../../utilities/getPriorityColor";
 import getTodayDate from "../../utilities/getTodayDate";
 
-const TodayTaskListComponent: FC<{ todayTaskList: TaskType[] }> = ({ todayTaskList }) => {
+interface TodayTaskListComponentType {
+  todayTaskList: TaskType[],
+  openFullDescriptionModal: ({ date, id }: { date: string; id: number }) => void,
+}
+
+const TodayTaskListComponent: FC<TodayTaskListComponentType> = ({ todayTaskList, openFullDescriptionModal }) => {
   const [isShowTodayTasks, setIsShowTodayTasks] = useState(true);
   const todayDate = getTodayDate();
 
@@ -44,6 +49,7 @@ const TodayTaskListComponent: FC<{ todayTaskList: TaskType[] }> = ({ todayTaskLi
             description={description}
             isDone={isDone}
             priorityColor={getPriorityColor(priority)}
+            openFullDescriptionModal={openFullDescriptionModal}
           />
         ))}
       </StyledTodayTaskListAccordionDetails>

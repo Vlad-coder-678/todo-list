@@ -16,6 +16,7 @@ interface TaskCardComponentPropsType {
   description: string,
   isDone: boolean,
   priorityColor: string,
+  openFullDescriptionModal: ({ date, id }: { date: string; id: number }) => void,
 }
 
 const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
@@ -25,6 +26,7 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
   description,
   isDone,
   priorityColor,
+  openFullDescriptionModal,
 }) => {
   const theme = useTheme();
   const taskListContext = useContext(TaskListContext);
@@ -56,11 +58,13 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
       />
 
       <Box
+        onClick={() => openFullDescriptionModal({ date, id })}
         sx={{
           width: "230px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          cursor: "pointer",
         }}
       >
         <TaskTitleComponent
