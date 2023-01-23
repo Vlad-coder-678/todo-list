@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from "react";
+import React, { FC, useContext, useState, useEffect } from "react";
 import {
   Box,
   FormControl,
@@ -10,6 +10,8 @@ import {
 import { DeleteForever, Edit, Save } from "@mui/icons-material";
 
 // local imports
+// constants
+import text from "../../constants/text";
 // providers
 import { TaskListContext } from "../../providers/TaskListContextProvider";
 // types
@@ -17,7 +19,6 @@ import { TaskListType } from "../../types/types";
 // components
 import StyledDialog from "../shared/StyledDialog";
 import StyledInput from "../shared/StyledInput";
-import text from "../../constants/text";
 
 interface Props {
   open: boolean,
@@ -32,9 +33,11 @@ const FullTaskDescriptionModal: FC<Props> = ({
 }) => {
   const [isShowForm, setIsShowForm] = useState(false);
   const taskListContext = useContext(TaskListContext);
+
   const { [currentTaskId.date]: currentTaskList } = taskListContext?.taskList as TaskListType;
-  const currentTask = currentTaskList.filter(({ id }) => (id === currentTaskId.id))[0];
-  const handleSelectPriorotyChange = (event: SelectChangeEvent<string>) => {
+  const [currentTask, setCurrentTask] = useState(currentTaskList.filter(({ id }) => (id === currentTaskId.id))[0]);
+
+  const handleChangeFields = (event: SelectChangeEvent<string> | { target: { name: string; value: string } }) => {
     const { name, value } = event.target;
     taskListContext?.updateTaskList({
       date: currentTaskId.date,
@@ -44,16 +47,17 @@ const FullTaskDescriptionModal: FC<Props> = ({
     });
   };
 
-  const handleChangeFields = (event: { target: { name: string; value: string } }) => {
-    const { name, value } = event.target;
-
-    taskListContext?.updateTaskList({
-      date: currentTaskId.date,
-      id: currentTaskId.id,
-      property: name,
-      value,
-    });
+  const handleRemoveTask = () => {
+    setCurrentTask({ id: 0, title: "", description: "", priority: "low", isDone: false });
+    taskListContext?.removeTask(currentTaskId);
+    onClose();
   };
+
+  useEffect(() => {
+    if (open) {
+      setCurrentTask(currentTaskList.filter(({ id }) => (id === currentTaskId.id))[0]);
+    }
+  }, [open]);
 
   return (
     <StyledDialog
@@ -98,7 +102,7 @@ const FullTaskDescriptionModal: FC<Props> = ({
                 value={currentTask.priority}
                 label={currentTask.priority}
                 name={text.priority.toLowerCase()}
-                onChange={handleSelectPriorotyChange}
+                onChange={handleChangeFields}
               >
                 <MenuItem value={text.high.toLowerCase()}>{text.high}</MenuItem>
                 <MenuItem value={text.normal.toLowerCase()}>{text.normal}</MenuItem>
@@ -124,7 +128,7 @@ const FullTaskDescriptionModal: FC<Props> = ({
               <IconButton onClick={() => setIsShowForm(!isShowForm)}>
                 <Edit color="warning" />
               </IconButton>
-              <IconButton>
+              <IconButton onClick={handleRemoveTask}>
                 <DeleteForever color="error" />
               </IconButton>
             </Box>

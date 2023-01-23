@@ -22,6 +22,7 @@ interface updateTaskListPropsType {
 interface TaskListContextType {
   taskList: TaskListType,
   updateTaskList: (props: updateTaskListPropsType) => void,
+  removeTask: ({ date, id }: { date: string; id: number }) => void,
 }
 
 interface ThemeContextProviderType {
