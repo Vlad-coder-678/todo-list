@@ -1,8 +1,5 @@
 // vendor imports
 import React, { FC, useState } from "react";
-import {
-  Container, useTheme,
-} from "@mui/material";
 
 // locale imports
 // components
@@ -10,22 +7,14 @@ import HeaderComponent from "./components/HeaderComponent";
 import MainComponent from "./components/MainComponent";
 import SettingsComponent from "./components/SettingsComponent";
 import SnackComponent from "./components/shared/SnackComponent";
+import StyledContainer from "./components/shared/StyledContainer";
 
 const App: FC = () => {
   const [isSettingShow, setIsSettingsShow] = useState(false);
   const [isSnackShow, setIsSnackShow] = useState(false);
-  const theme = useTheme();
 
   return (
-    <Container
-      sx={{
-        backgroundColor: theme.palette.background.default,
-        height: "844px",
-        width: "390px",
-        borderRadius: "30px",
-        overflow: "hidden",
-      }}
-    >
+    <StyledContainer>
       <HeaderComponent
         setIsSettingsShow={setIsSettingsShow}
       />
@@ -47,7 +36,7 @@ const App: FC = () => {
         snackAction="snackAction"
         handleSnackClose={() => setIsSnackShow(!isSnackShow)}
       />
-    </Container>
+    </StyledContainer>
   );
 };
 

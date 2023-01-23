@@ -2,6 +2,12 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 code {
@@ -14,33 +20,4 @@ code {
   min-height: 100vh;
   overflow-x: hidden;
   padding-top: 53px;
-}
-
-.MuiContainer-root {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-h1 {
-  font-size: 36px;
-  line-height: 38px;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 36px;
-  line-height: 38px;
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 36px;
-  line-height: 38px;
-  font-weight: 700;
-}
-
-p {
-  font-size: 36px;
-  line-height: 38px;
-  font-weight: 400;
 }

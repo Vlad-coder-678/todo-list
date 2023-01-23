@@ -14,8 +14,6 @@ import { Settings } from "@mui/icons-material";
 import text from "../../constants/text";
 // types
 import { HeaderComponentPropsType } from "../../types/types";
-// styles
-import "./styles.css";
 
 const HeaderComponent: FC<HeaderComponentPropsType> = ({ setIsSettingsShow }) => {
   const theme = useTheme();
@@ -27,6 +25,7 @@ const HeaderComponent: FC<HeaderComponentPropsType> = ({ setIsSettingsShow }) =>
       sx={{
         width: "100%",
         background: theme.palette.background.default,
+        boxShadow: "none",
       }}
     >
       <Toolbar
@@ -34,6 +33,10 @@ const HeaderComponent: FC<HeaderComponentPropsType> = ({ setIsSettingsShow }) =>
           width: "100%",
           display: "flex",
           justifyContent: "space-between",
+          height: "70px",
+          boxSizing: "border-box",
+          paddingLeft: "36px",
+          paddingRight: "28px",
         }}
       >
         <Typography
@@ -44,6 +47,7 @@ const HeaderComponent: FC<HeaderComponentPropsType> = ({ setIsSettingsShow }) =>
             lineHeight: "36px",
             fontWeight: "700",
             letterSpacing: "0",
+            paddingLeft: "11px",
           }}
         >
           {text.mainTitle}
@@ -54,6 +58,7 @@ const HeaderComponent: FC<HeaderComponentPropsType> = ({ setIsSettingsShow }) =>
           color="inherit"
           aria-label="menu"
           onClick={handleClickSettingsButton}
+          sx={{ paddingRight: "14px" }}
         >
           <Settings
             sx={{ fontSize: "36px" }}
