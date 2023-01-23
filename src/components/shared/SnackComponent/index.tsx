@@ -2,13 +2,13 @@ import React, { Dispatch, FC, ReactNode, SetStateAction } from "react";
 import { Alert, Snackbar } from "@mui/material";
 
 interface SnackComponentType {
-  autoHideDuration: number
-  isShow: boolean
-  snackText: string
-  handleSnackClose: Dispatch<SetStateAction<boolean>>
-  snackMessage: string
-  snackAction: ReactNode
-  snackSeverity?: "success" | "info" | "warning" | "error"
+  autoHideDuration: number,
+  isShow: boolean,
+  snackText: string,
+  handleSnackClose: Dispatch<SetStateAction<boolean>>,
+  snackMessage: string,
+  snackAction: ReactNode,
+  snackSeverity?: "success" | "info" | "warning" | "error",
 }
 
 const SnackComponent: FC<SnackComponentType> = ({

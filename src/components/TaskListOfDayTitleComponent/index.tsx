@@ -13,11 +13,12 @@ const TaskListOfDayTitleComponent: FC<TaskListTitleComponentPropsType> = ({ titl
       component="h2"
       noWrap
       sx={{
+        height: "24px",
         color: theme.palette.text.primary,
         fontSize: "24px",
-        lineHeight: "38px",
+        lineHeight: "24px",
         fontWeight: "700",
-        letterSpacing: "0",
+        letterSpacing: "-0.7px",
       }}
     >
       {title}

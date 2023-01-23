@@ -42,8 +42,7 @@ const darkThemePalette = {
   text: {
     primary: "#f4f4f4",
     secondary: "#a9a9a9",
-    disabled: "#222",
-    icon: "#333",
+    disabled: "#c2c2c2",
   },
   divider: "rgba(255, 255, 255, 0.12)",
   background: {

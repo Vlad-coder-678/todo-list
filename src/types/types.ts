@@ -32,17 +32,11 @@ interface HeaderComponentPropsType {
   setIsSettingsShow: Dispatch<SetStateAction<boolean>>,
 }
 
-interface CheckboxComponentPropsType {
-  isChecked: boolean,
-  setIsChecked: Dispatch<SetStateAction<boolean>>,
-}
-
 export type {
   TaskType,
   TaskListType,
   TaskListContextType,
   ThemeContextProviderType,
   HeaderComponentPropsType,
-  CheckboxComponentPropsType,
   updateTaskListPropsType,
 };

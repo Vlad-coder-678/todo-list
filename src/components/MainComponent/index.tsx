@@ -1,6 +1,7 @@
 // vendor imports
-import React, { FC, useContext, useState } from "react";
+import React, { FC, useContext } from "react";
 import { Box, useTheme } from "@mui/material";
+import { ExpandCircleDown } from "@mui/icons-material";
 
 // locale imports
 // constants
@@ -8,20 +9,24 @@ import text from "../../constants/text";
 // poviders
 import { TaskListContext } from "../../providers/TaskListContextProvider";
 // components
-import CheckboxComponent from "../CheckboxComponent";
 import TaskListOfDayTitleComponent from "../TaskListOfDayTitleComponent";
 import TaskCardComponent from "../TaskCardComponent";
+import TodayTaskListComponent from "../TodayTaskListComponent";
 // utilities
 import getTodayDate from "../../utilities/getTodayDate";
 import getPriorityColor from "../../utilities/getPriorityColor";
+// types
+import { TaskListType } from "../../types/types";
 // styles
 import "./styles.css";
+import { StyledRestTaskListAccordion, StyledRestTaskListAccordionDetails, StyledRestTaskListAccordionSummary } from "../shared/StyledRestTaskListAccordion";
 
 const MainComponent: FC = () => {
-  const [isShowTodayTasks, setIsShowTodayTasks] = useState(true);
   const taskListContext = useContext(TaskListContext);
-  const todayDate = getTodayDate();
   const theme = useTheme();
+
+  const todayDate = getTodayDate();
+  const { [todayDate]: todayTaskList, ...restTaskLists } = taskListContext?.taskList as TaskListType;
 
   return (
     <Box
@@ -29,54 +34,46 @@ const MainComponent: FC = () => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        gap: "15px",
+        gap: "31px",
         boxSizing: "border-box",
-        padding: "10px 20px",
+        padding: "0 20px",
       }}
     >
-      <Box
-        sx={{
-          height: "22px",
-          display: "flex",
-          alignItems: "center",
-          paddingLeft: "15px",
-          gap: "9px",
-          boxSizing: "border-box",
-        }}
-      >
-        <CheckboxComponent
-          isChecked={isShowTodayTasks}
-          setIsChecked={setIsShowTodayTasks}
-        />
+      <TodayTaskListComponent
+        todayTaskList={todayTaskList}
+      />
+      {/* rest tasks */}
+      {Object.entries(restTaskLists)?.map(([date, taskList], index) => (
+        <StyledRestTaskListAccordion key={date}>
+          <StyledRestTaskListAccordionSummary
+            expandIcon={(<ExpandCircleDown />)}
+          >
+            <Box sx={{
+              width: "5px",
+              height: "40px",
+              backgroundColor: theme.palette.text.secondary,
+              marginRight: "13px",
+            }} />
 
-        <TaskListOfDayTitleComponent title={text.todayTasks} />
-      </Box>
-      <Box
-        sx={{
-          width: "350px",
-          height: "210px",
-          display: "flex",
-          flexDirection: "column",
-          boxSizing: "border-box",
-          padding: "22px 27px 22px 16px",
-          gap: "21px",
-          backgroundColor: theme.palette.primary.light,
-          borderRadius: "40px",
-          boxShadow: "-6px -6px 5px 5px rgba(255, 255, 0, 0.05)",
-        }}
-      >
-        {taskListContext?.taskList[todayDate].map(({ title, description, isDone, priority, id }) => (
-          <TaskCardComponent
-            key={`${todayDate} ${id}`}
-            date={todayDate}
-            id={id}
-            title={title}
-            description={description}
-            isDone={isDone}
-            priorityColor={getPriorityColor(priority)}
-          />
-        ))}
-      </Box>
+            <TaskListOfDayTitleComponent
+              title={`${(index === 0 ? text.tomorrow : date.substring(0, 5))} ${text.tasks}`}
+            />
+          </StyledRestTaskListAccordionSummary>
+          <StyledRestTaskListAccordionDetails>
+            {taskList.map(({ title, description, isDone, priority, id }) => (
+              <TaskCardComponent
+                key={`${date} ${id}`}
+                date={date}
+                id={id}
+                title={title}
+                description={description}
+                isDone={isDone}
+                priorityColor={getPriorityColor(priority)}
+              />
+            ))}
+          </StyledRestTaskListAccordionDetails>
+        </StyledRestTaskListAccordion>
+      ))}
     </Box>
   );
 };

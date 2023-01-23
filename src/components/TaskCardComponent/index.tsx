@@ -6,7 +6,7 @@ import { Box, useTheme } from "@mui/material";
 // components
 import TaskDescriptionComponent from "../TaskDescriptionComponent";
 import TaskTitleComponent from "../TaskTitleComponent";
-import SwitchComponent from "../SwitchComponent";
+import StyledSwitch from "../shared/StyledSwitch";
 import { TaskListContext } from "../../providers/TaskListContextProvider";
 
 interface TaskCardComponentPropsType {
@@ -73,7 +73,7 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
         </TaskDescriptionComponent>
       </Box>
 
-      <SwitchComponent
+      <StyledSwitch
         checked={isDone}
         onChange={handleChangeTaskStatus}
         theme={theme}

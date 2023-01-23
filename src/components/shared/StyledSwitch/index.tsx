@@ -1,7 +1,12 @@
+// vendor imports
 import React from "react";
-import { styled, Switch, SwitchProps } from "@mui/material";
+import {
+  styled,
+  Switch,
+  SwitchProps,
+} from "@mui/material";
 
-const SwitchComponent = styled((props: SwitchProps) => (
+const StyledSwitch = styled((props: SwitchProps) => (
   <Switch {...props} />
 ))(({ theme }) => ({
   width: 50,
@@ -53,4 +58,4 @@ const SwitchComponent = styled((props: SwitchProps) => (
   },
 }));
 
-export default SwitchComponent;
+export default StyledSwitch;

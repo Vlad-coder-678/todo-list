@@ -9,7 +9,7 @@ import {
 import HeaderComponent from "./components/HeaderComponent";
 import MainComponent from "./components/MainComponent";
 import SettingsComponent from "./components/SettingsComponent";
-import SnackComponent from "./components/SnackComponent";
+import SnackComponent from "./components/shared/SnackComponent";
 
 const App: FC = () => {
   const [isSettingShow, setIsSettingsShow] = useState(false);
