@@ -1,6 +1,7 @@
 // vendor imports
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { StyledEngineProvider } from "@mui/material";
 
 // local imports
@@ -22,12 +23,16 @@ const app = ReactDOM.createRoot(
   document.getElementById("app") as HTMLElement,
 );
 
+const queryClient = new QueryClient();
+
 app.render(
   <StrictMode>
     <StyledEngineProvider injectFirst>
       <ThemeContextProvider>
         <TaskListContextProvider>
-          <App />
+          <QueryClientProvider client={queryClient}>
+            <App />
+          </QueryClientProvider>
         </TaskListContextProvider>
       </ThemeContextProvider>
     </StyledEngineProvider>
@@ -37,4 +42,4 @@ app.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals(console.log);
+reportWebVitals();

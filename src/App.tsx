@@ -11,16 +11,18 @@ import FullTaskDescriptionModal from "./components/FullTaskDescriptionModal";
 import HeaderComponent from "./components/HeaderComponent";
 import MainComponent from "./components/MainComponent";
 import SettingsComponent from "./components/SettingsComponent";
+import NewsModal from "./components/NewsModal";
 
 const App: FC = () => {
   const [isSnackShow, setIsSnackShow] = useState(false);
   const [isShowFullTaskDescriptionModal, setIsShowFullTaskDescriptionModal] = useState(false);
+  const [isShowNewsModal, setIsShowNewsModal] = useState(true);
+
   const [currentTaskId, setCurrentTaskId] = useState({ date: Object.keys(TASK_LIST)[0], id: 1 });
   const [showMenuButtonAnchor, setShowMenuButtonAnchor] = useState<null | HTMLElement>(null);
   const isSettingShow = Boolean(showMenuButtonAnchor);
 
   const handleOpenMenu = (event: MouseEvent<HTMLElement>) => setShowMenuButtonAnchor(event.currentTarget);
-  const handleCloseMenu = () => setShowMenuButtonAnchor(null);
 
   const openFullDescriptionModal = ({ date, id }: { date: string; id: number }) => {
     setCurrentTaskId({ date, id });
@@ -36,7 +38,9 @@ const App: FC = () => {
       <SettingsComponent
         anchorEl={showMenuButtonAnchor}
         open={isSettingShow}
-        onClose={handleCloseMenu}
+        onClose={() => setShowMenuButtonAnchor(null)}
+        isShowNewsModal={isShowNewsModal}
+        toggleShowNewsModal={() => setIsShowNewsModal(!isShowNewsModal)}
       />
 
       <FullTaskDescriptionModal
@@ -44,6 +48,8 @@ const App: FC = () => {
         onClose={() => setIsShowFullTaskDescriptionModal(false)}
         currentTaskId={currentTaskId}
       />
+
+      {isShowNewsModal && <NewsModal />}
 
       <SnackComponent
         autoHideDuration={3000}
