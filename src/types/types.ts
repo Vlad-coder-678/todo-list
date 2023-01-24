@@ -36,7 +36,6 @@ interface RestTaskListComponentPropTypes {
 }
 
 interface EditTaskFormComponenPropsType {
-  currentTaskId: { date: string; id: number },
   onClose: () => void,
 }
 

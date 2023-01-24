@@ -8,12 +8,12 @@ import { DeleteForever, Edit } from "@mui/icons-material";
 // local imports
 // providers
 import { TaskListContext } from "../../providers/TaskListContextProvider";
+import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 // types
 import { TaskListType } from "../../types/types";
 // components
 import StyledDialog from "../shared/StyledDialog";
 import EditTaskFormComponen from "../EditTaskFormComponent";
-import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 
 const FullTaskDescriptionModal: FC = () => {
   const [isShowForm, setIsShowForm] = useState(false);
@@ -34,7 +34,7 @@ const FullTaskDescriptionModal: FC = () => {
       onClose={closeFullDescriptionModal}
     >
       {isShowForm
-        ? (<EditTaskFormComponen onClose={() => setIsShowForm(false)} currentTaskId={currentTaskId} />)
+        ? (<EditTaskFormComponen onClose={() => setIsShowForm(false)} />)
         : (
           <>
             <h4>{currentTask?.title ?? ""}</h4>

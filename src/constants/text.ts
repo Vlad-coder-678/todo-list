@@ -13,6 +13,7 @@ const TEXT = {
   newsIsLoading: "News is loading... ",
   noResults: "No results for your query, try refreshing the page. ",
   errorMessage: "Error message: ",
+  addNewTask: "add new task",
 };
 
 export default TEXT;

@@ -9,6 +9,7 @@ import HeaderComponent from "./components/HeaderComponent";
 import MainComponent from "./components/MainComponent";
 import SettingsComponent from "./components/SettingsComponent";
 import NewsModal from "./components/NewsModal";
+import AddNewTaskModal from "./components/AddNewTaskModal";
 
 const App: FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: FC = () => {
       {/* modals */}
       <SettingsComponent />
       <FullTaskDescriptionModal />
+      <AddNewTaskModal />
       <NewsModal />
     </StyledContainer>
   );

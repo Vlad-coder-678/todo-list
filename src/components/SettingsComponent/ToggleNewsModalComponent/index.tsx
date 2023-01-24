@@ -5,11 +5,11 @@ import { Box, IconButton } from "@mui/material";
 
 // local imports
 // constants
-import TEXT from "../../constants/text";
+import TEXT from "../../../constants/text";
 // providers
-import { ModalsShowContext } from "../../providers/ModalsShowProvider";
+import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
 
-const ToggleNewsModelComponent: FC = () => {
+const ToggleNewsModalComponent: FC = () => {
   const { isShowNewsModal, toggleShowNewsModal } = useContext(ModalsShowContext);
 
   return (
@@ -34,4 +34,4 @@ const ToggleNewsModelComponent: FC = () => {
   );
 };
 
-export default ToggleNewsModelComponent;
+export default ToggleNewsModalComponent;

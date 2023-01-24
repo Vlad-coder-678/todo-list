@@ -12,10 +12,11 @@ import { EditTaskFormComponenPropsType, TaskListType } from "../../types/types";
 import { TaskListContext } from "../../providers/TaskListContextProvider";
 // components
 import StyledInput from "../shared/StyledInput";
+import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 
-const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ currentTaskId, onClose }) => {
+const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ onClose }) => {
   const taskListContext = useContext(TaskListContext);
-
+  const { currentTaskId, closeFullDescriptionModal } = useContext(ModalsShowContext);
   const { [currentTaskId.date]: currentTaskList } = taskListContext?.taskList as TaskListType;
   const currentTask = currentTaskList.filter(({ id }) => (id === currentTaskId.id))[0];
 
@@ -28,6 +29,11 @@ const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ currentTaskId
       property: name,
       value,
     });
+  };
+
+  const handleClosemodal = () => {
+    closeFullDescriptionModal();
+    onClose();
   };
 
   return (
@@ -74,7 +80,7 @@ const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ currentTaskId
           <MenuItem value={TEXT.low.toLowerCase()}>{TEXT.low}</MenuItem>
         </Select>
       </Box>
-      <IconButton onClick={onClose}>
+      <IconButton onClick={handleClosemodal}>
         <Save color="success" />
       </IconButton>
     </FormControl>

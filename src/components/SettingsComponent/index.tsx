@@ -7,7 +7,8 @@ import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 // components
 import StyledMenu from "../shared/StyledMenu";
 import ToggleThemeModeComponent from "./ToggleThemeModeComponent";
-import ToggleNewsModelComponent from "../ToggleNewsModelComponent";
+import ToggleNewsModalComponent from "./ToggleNewsModalComponent";
+import ToggleNewTaskModalComponent from "./ToggleNewTaskModalComponent";
 
 const SettingsComponent: FC = () => {
   const { isShowMenuModal, handleCloseMenu, showMenuButtonAnchor } = useContext(ModalsShowContext);
@@ -19,7 +20,8 @@ const SettingsComponent: FC = () => {
       anchorEl={showMenuButtonAnchor}
     >
       <ToggleThemeModeComponent />
-      <ToggleNewsModelComponent />
+      <ToggleNewsModalComponent />
+      <ToggleNewTaskModalComponent />
     </StyledMenu>
   );
 };
