@@ -1,15 +1,16 @@
 // vendor imports
 import React, { FC, MouseEvent, useState } from "react";
-import FullTaskDescriptionModal from "./components/FullTaskDescriptionModal";
 
 // locale imports
+// mock
+import TASK_LIST from "./mock/task-list";
 // components
+import SnackComponent from "./components/shared/SnackComponent";
+import StyledContainer from "./components/shared/StyledContainer";
+import FullTaskDescriptionModal from "./components/FullTaskDescriptionModal";
 import HeaderComponent from "./components/HeaderComponent";
 import MainComponent from "./components/MainComponent";
 import SettingsComponent from "./components/SettingsComponent";
-import SnackComponent from "./components/shared/SnackComponent";
-import StyledContainer from "./components/shared/StyledContainer";
-import TASK_LIST from "./mock/task-list";
 
 const App: FC = () => {
   const [isSnackShow, setIsSnackShow] = useState(false);
@@ -20,6 +21,7 @@ const App: FC = () => {
 
   const handleOpenMenu = (event: MouseEvent<HTMLElement>) => setShowMenuButtonAnchor(event.currentTarget);
   const handleCloseMenu = () => setShowMenuButtonAnchor(null);
+
   const openFullDescriptionModal = ({ date, id }: { date: string; id: number }) => {
     setCurrentTaskId({ date, id });
     setIsShowFullTaskDescriptionModal(true);

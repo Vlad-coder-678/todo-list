@@ -27,10 +27,10 @@
     "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/member-delimiter-style": ["error", { "multiline": { "delimiter": "comma" } }],
+    "@typescript-eslint/consistent-indexed-object-style": "off",
     "@typescript-eslint/no-confusing-void-expression": ["warn", {
       "ignoreArrowShorthand": true,
       "ignoreVoidOperator": false
-    }],
-    "@typescript-eslint/consistent-indexed-object-style": "off"
+    }]
   }
 }

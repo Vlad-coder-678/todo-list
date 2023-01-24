@@ -5,9 +5,44 @@ import { PaletteMode } from "@mui/material";
 import darkThemePalette from "../constants/darkThemePalette";
 import lightThemePalette from "../constants/lightThemePalette";
 
+/**
+ * @function getDesignTokens
+ * @param {PaletteMode} mode - название цветовой палитры
+ * @description возвращает набор цветовой палитры в зависимости от имени цветового режима
+ *
+ * @returns {object}
+ */
 const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
     mode,
+    common: {
+      black: "#000",
+      white: "#f4f4f4",
+    },
+    error: {
+      main: "#fe0000",
+      light: "#111",
+      dark: "#333",
+      contrastText: "#f4f4f4",
+    },
+    warning: {
+      main: "#ffeb34",
+      light: "#2c2c2c",
+      dark: "#333",
+      contrastText: "#f4f4f4",
+    },
+    info: {
+      main: "#366eff",
+      light: "#111",
+      dark: "#333",
+      contrastText: "#f4f4f4",
+    },
+    success: {
+      main: "#11c200",
+      light: "#111",
+      dark: "#333",
+      contrastText: "#f4f4f4",
+    },
     ...(mode === "light" ? lightThemePalette : darkThemePalette),
   },
   typography: {

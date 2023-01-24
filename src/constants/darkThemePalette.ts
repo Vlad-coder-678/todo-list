@@ -1,8 +1,4 @@
 const darkThemePalette = {
-  common: {
-    black: "#000",
-    white: "#f4f4f4",
-  },
   primary: {
     main: "#222",
     light: "#282828",
@@ -11,30 +7,6 @@ const darkThemePalette = {
   },
   secondary: {
     main: "#222",
-    light: "#111",
-    dark: "#333",
-    contrastText: "#f4f4f4",
-  },
-  error: {
-    main: "#fe0000",
-    light: "#111",
-    dark: "#333",
-    contrastText: "#f4f4f4",
-  },
-  warning: {
-    main: "#ffeb34",
-    light: "#2c2c2c",
-    dark: "#333",
-    contrastText: "#f4f4f4",
-  },
-  info: {
-    main: "#366eff",
-    light: "#111",
-    dark: "#333",
-    contrastText: "#f4f4f4",
-  },
-  success: {
-    main: "#11c200",
     light: "#111",
     dark: "#333",
     contrastText: "#f4f4f4",
