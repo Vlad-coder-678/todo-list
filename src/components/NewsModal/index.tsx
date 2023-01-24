@@ -16,10 +16,10 @@ const NewsModal: FC = () => {
 
   if (!(isShowNewsModal as boolean)) return null;
 
-  const FULL_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=06ce86ba632e44f5a547738589d46c75";
+  const FULL_URL_NEWS_API = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=06ce86ba632e44f5a547738589d46c75";
 
   const { data, isLoading, isError, error } = useQuery("news data", async () => {
-    const response = await fetch(FULL_URL);
+    const response = await fetch(FULL_URL_NEWS_API);
     const results = await response.json();
 
     return results;
