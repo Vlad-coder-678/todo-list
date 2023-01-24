@@ -20,9 +20,11 @@ import getTodayDate from "../../utilities/getTodayDate";
 import StyledDialog from "../shared/StyledDialog";
 import StyledInput from "../shared/StyledInput";
 
+const DEFAULT_FIELDS = { id: 0, title: "", description: "", priority: "low", isDone: false };
+
 const AddNewTaskModal = () => {
   const [date, setDate] = useState<string>(getTodayDate());
-  const [fields, setFields] = useState<TaskType>({ id: 0, title: "", description: "", priority: "low", isDone: false });
+  const [fields, setFields] = useState<TaskType>(DEFAULT_FIELDS);
   const taskListContext = useContext(TaskListContext);
   const { isShowNewTaskModal, handleCloseNewTaskModal } = useContext(ModalsShowContext);
 
@@ -42,6 +44,7 @@ const AddNewTaskModal = () => {
       description: fields?.description,
       priority: fields?.priority,
     });
+    setFields(DEFAULT_FIELDS);
   };
 
   return (
