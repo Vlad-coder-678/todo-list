@@ -1,15 +1,10 @@
-import React, { Dispatch, FC, ReactNode, SetStateAction } from "react";
+// vendor imports
+import React, { FC } from "react";
 import { Alert, Snackbar } from "@mui/material";
 
-interface SnackComponentType {
-  autoHideDuration: number,
-  isShow: boolean,
-  snackText: string,
-  handleSnackClose: Dispatch<SetStateAction<boolean>>,
-  snackMessage: string,
-  snackAction: ReactNode,
-  snackSeverity?: "success" | "info" | "warning" | "error",
-}
+// local imports
+// types
+import { SnackComponentType } from "../../../types/types";
 
 const SnackComponent: FC<SnackComponentType> = ({
   autoHideDuration,

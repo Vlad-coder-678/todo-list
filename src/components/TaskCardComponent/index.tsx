@@ -3,21 +3,15 @@ import React, { FC, useContext } from "react";
 import { Box, useTheme } from "@mui/material";
 
 // local imports
+// types
+import { TaskCardComponentPropsType } from "../../types/types";
+// providers
+import { TaskListContext } from "../../providers/TaskListContextProvider";
+import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 // components
+import StyledSwitch from "../shared/StyledSwitch";
 import TaskDescriptionComponent from "../TaskDescriptionComponent";
 import TaskTitleComponent from "../TaskTitleComponent";
-import StyledSwitch from "../shared/StyledSwitch";
-import { TaskListContext } from "../../providers/TaskListContextProvider";
-
-interface TaskCardComponentPropsType {
-  date: string,
-  id: number,
-  title: string,
-  description: string,
-  isDone: boolean,
-  priorityColor: string,
-  openFullDescriptionModal: ({ date, id }: { date: string; id: number }) => void,
-}
 
 const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
   date,
@@ -26,7 +20,6 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
   description,
   isDone,
   priorityColor,
-  openFullDescriptionModal,
 }) => {
   const theme = useTheme();
   const taskListContext = useContext(TaskListContext);
@@ -38,6 +31,7 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
       value: !isDone,
     });
   };
+  const { openFullTaskDescriptionModal } = useContext(ModalsShowContext);
 
   return (
     <Box
@@ -58,7 +52,7 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
       />
 
       <Box
-        onClick={() => openFullDescriptionModal({ date, id })}
+        onClick={() => openFullTaskDescriptionModal({ date, id })}
         sx={{
           width: "230px",
           display: "flex",
@@ -67,9 +61,7 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
           cursor: "pointer",
         }}
       >
-        <TaskTitleComponent
-          isDone={isDone}
-        >
+        <TaskTitleComponent isDone={isDone}>
           {title}
         </TaskTitleComponent>
         <TaskDescriptionComponent>

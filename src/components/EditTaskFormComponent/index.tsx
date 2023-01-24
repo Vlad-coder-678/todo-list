@@ -5,20 +5,15 @@ import { Save } from "@mui/icons-material";
 
 // local imports
 // constants
-import text from "../../constants/text";
+import TEXT from "../../constants/text";
 // types
-import { TaskListType } from "../../types/types";
+import { EditTaskFormComponenPropsType, TaskListType } from "../../types/types";
 // providers
 import { TaskListContext } from "../../providers/TaskListContextProvider";
 // components
 import StyledInput from "../shared/StyledInput";
 
-interface Props {
-  currentTaskId: { date: string; id: number },
-  onClose: () => void,
-}
-
-const EditTaskFormComponen: FC<Props> = ({ currentTaskId, onClose }) => {
+const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ currentTaskId, onClose }) => {
   const taskListContext = useContext(TaskListContext);
 
   const { [currentTaskId.date]: currentTaskList } = taskListContext?.taskList as TaskListType;
@@ -67,16 +62,16 @@ const EditTaskFormComponen: FC<Props> = ({ currentTaskId, onClose }) => {
           justifyContent: "space-between",
         }}
       >
-        <span>{text.priority}</span>
+        <span>{TEXT.priority}</span>
         <Select
           value={currentTask?.priority ?? ""}
           label={currentTask?.priority ?? ""}
-          name={text.priority.toLowerCase()}
+          name={TEXT.priority.toLowerCase()}
           onChange={handleChangeFields}
         >
-          <MenuItem value={text.high.toLowerCase()}>{text.high}</MenuItem>
-          <MenuItem value={text.normal.toLowerCase()}>{text.normal}</MenuItem>
-          <MenuItem value={text.low.toLowerCase()}>{text.low}</MenuItem>
+          <MenuItem value={TEXT.high.toLowerCase()}>{TEXT.high}</MenuItem>
+          <MenuItem value={TEXT.normal.toLowerCase()}>{TEXT.normal}</MenuItem>
+          <MenuItem value={TEXT.low.toLowerCase()}>{TEXT.low}</MenuItem>
         </Select>
       </Box>
       <IconButton onClick={onClose}>

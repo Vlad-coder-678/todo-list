@@ -1,11 +1,8 @@
-import { Typography, useTheme } from "@mui/material";
+// vendor imports
 import React, { FC, ReactNode } from "react";
+import { Typography, useTheme } from "@mui/material";
 
-interface TaskDescriptionComponentPropsType {
-  children: ReactNode,
-};
-
-const TaskDescriptionComponent: FC<TaskDescriptionComponentPropsType> = ({ children }) => {
+const TaskDescriptionComponent: FC<{ children: ReactNode }> = ({ children }) => {
   const theme = useTheme();
 
   return (

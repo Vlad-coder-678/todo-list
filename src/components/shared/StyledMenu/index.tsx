@@ -1,16 +1,11 @@
+// vendor imports
 import React from "react";
 import { Menu, MenuProps, styled } from "@mui/material";
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
-    anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "right",
-    }}
-    transformOrigin={{
-      vertical: "top",
-      horizontal: "right",
-    }}
+    anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+    transformOrigin={{ vertical: "top", horizontal: "right" }}
     {...props}
   />
 ))(({ theme }) => ({

@@ -4,11 +4,11 @@ import { Checkbox, CheckboxProps, styled } from "@mui/material";
 import { Check } from "@mui/icons-material";
 
 const StylesCheckbox = styled((props: CheckboxProps) => (
-    <Checkbox
-      checkedIcon={<Check />}
-      icon={<Check className="unchecked" />}
-      {...props}
-    />
+  <Checkbox
+    checkedIcon={<Check />}
+    icon={<Check className="unchecked" />}
+    {...props}
+  />
 ))(({ theme }) => ({
   width: "23px",
   height: "23px",

@@ -3,28 +3,23 @@ import React, { FC, useState } from "react";
 
 // local imports
 // constants
-import text from "../../constants/text";
+import TEXT from "../../constants/text";
 // types
 import { TaskType } from "../../types/types";
+// utilities
+import getPriorityColor from "../../utilities/getPriorityColor";
+import getTodayDate from "../../utilities/getTodayDate";
 // components
 import StylesCheckbox from "../shared/StylesCheckbox";
-import TaskListOfDayTitleComponent from "../TaskListOfDayTitleComponent";
-import TaskCardComponent from "../TaskCardComponent";
 import {
   StyledTodayTaskListAccordion,
   StyledTodayTaskListAccordionSummary,
   StyledTodayTaskListAccordionDetails,
 } from "../shared/StyledTodayTaskListAccordion";
-// utilities
-import getPriorityColor from "../../utilities/getPriorityColor";
-import getTodayDate from "../../utilities/getTodayDate";
+import TaskListOfDayTitleComponent from "../TaskListOfDayTitleComponent";
+import TaskCardComponent from "../TaskCardComponent";
 
-interface TodayTaskListComponentType {
-  todayTaskList: TaskType[],
-  openFullDescriptionModal: ({ date, id }: { date: string; id: number }) => void,
-}
-
-const TodayTaskListComponent: FC<TodayTaskListComponentType> = ({ todayTaskList, openFullDescriptionModal }) => {
+const TodayTaskListComponent: FC<{ todayTaskList: TaskType[] }> = ({ todayTaskList }) => {
   const [isShowTodayTasks, setIsShowTodayTasks] = useState(true);
   const todayDate = getTodayDate();
 
@@ -36,7 +31,7 @@ const TodayTaskListComponent: FC<TodayTaskListComponentType> = ({ todayTaskList,
       <StyledTodayTaskListAccordionSummary>
         <StylesCheckbox checked={isShowTodayTasks} />
 
-        <TaskListOfDayTitleComponent title={text.todayTasks} />
+        <TaskListOfDayTitleComponent title={TEXT.todayTasks} />
       </StyledTodayTaskListAccordionSummary>
 
       <StyledTodayTaskListAccordionDetails>
@@ -49,7 +44,6 @@ const TodayTaskListComponent: FC<TodayTaskListComponentType> = ({ todayTaskList,
             description={description}
             isDone={isDone}
             priorityColor={getPriorityColor(priority)}
-            openFullDescriptionModal={openFullDescriptionModal}
           />
         ))}
       </StyledTodayTaskListAccordionDetails>

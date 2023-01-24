@@ -1,11 +1,18 @@
 // vendor imports
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import { useQuery } from "react-query";
 import Marquee from "react-fast-marquee";
 import { Box, useTheme } from "@mui/material";
 
+// local imports
+// providers
+import { ModalsShowContext } from "../../providers/ModalsShowProvider";
+
 const NewsModal: FC = () => {
   const theme = useTheme();
+  const { isShowNewsModal } = useContext(ModalsShowContext);
+
+  if (!(isShowNewsModal as boolean)) return null;
 
   const FULL_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=06ce86ba632e44f5a547738589d46c75";
 

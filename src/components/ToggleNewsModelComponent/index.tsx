@@ -1,16 +1,17 @@
+// vendor imports
+import React, { FC, useContext } from "react";
 import { SpeakerNotes, SpeakerNotesOff } from "@mui/icons-material";
 import { Box, IconButton } from "@mui/material";
-import React, { FC } from "react";
 
-interface Props {
-  isShowNewsModal: boolean,
-  toggleShowNewsModal: () => void,
-}
+// local imports
+// constants
+import TEXT from "../../constants/text";
+// providers
+import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 
-const ToggleNewsModelComponent: FC<Props> = ({
-  isShowNewsModal,
-  toggleShowNewsModal,
-}) => {
+const ToggleNewsModelComponent: FC = () => {
+  const { isShowNewsModal, toggleShowNewsModal } = useContext(ModalsShowContext);
+
   return (
     <Box
       sx={{
@@ -24,12 +25,11 @@ const ToggleNewsModelComponent: FC<Props> = ({
         p: 3,
       }}
     >
-      <IconButton
-        onClick={toggleShowNewsModal}
-      >
-        {isShowNewsModal ? <SpeakerNotesOff /> : <SpeakerNotes />}
+      <IconButton onClick={toggleShowNewsModal}>
+        {(isShowNewsModal as boolean) ? <SpeakerNotesOff /> : <SpeakerNotes />}
       </IconButton>
-      {`${isShowNewsModal ? "Close" : "Show"} news`.toUpperCase()}
+
+      {`${(isShowNewsModal as boolean) ? TEXT.close : TEXT.show} ${TEXT.news}`.toUpperCase()}
     </Box>
   );
 };

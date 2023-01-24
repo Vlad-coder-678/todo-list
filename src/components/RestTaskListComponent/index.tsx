@@ -1,25 +1,26 @@
+// vendor imports
 import React, { FC } from "react";
 import { Box, useTheme } from "@mui/material";
 import { ExpandCircleDown } from "@mui/icons-material";
+
+// local imports
+// constants
+import TEXT from "../../constants/text";
+// types
+import { RestTaskListComponentPropTypes } from "../../types/types";
+// utilities
+import getPriorityColor from "../../utilities/getPriorityColor";
+// components
 import { StyledRestTaskListAccordion, StyledRestTaskListAccordionDetails, StyledRestTaskListAccordionSummary } from "../shared/StyledRestTaskListAccordion";
 import TaskListOfDayTitleComponent from "../TaskListOfDayTitleComponent";
-import text from "../../constants/text";
 import TaskCardComponent from "../TaskCardComponent";
-import getPriorityColor from "../../utilities/getPriorityColor";
-import { TaskType } from "../../types/types";
 
-interface RestTaskListComponentPropTypes {
-  date: string,
-  taskList: TaskType[],
-  index: number,
-  openFullDescriptionModal: ({ date, id }: { date: string; id: number }) => void,
-}
-
-const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskList, index, openFullDescriptionModal }) => {
+const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskList, index }) => {
   const theme = useTheme();
 
-  return taskList.length > 0
-    ? (
+  if (taskList.length === 0) return null;
+
+  return (
     <StyledRestTaskListAccordion key={date}>
       <StyledRestTaskListAccordionSummary
         expandIcon={(<ExpandCircleDown />)}
@@ -32,7 +33,7 @@ const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskL
         }} />
 
         <TaskListOfDayTitleComponent
-          title={`${(index === 0 ? text.tomorrow : date.substring(0, 5))} ${text.tasks}`}
+          title={`${(index === 0 ? TEXT.tomorrow : date.substring(0, 5))} ${TEXT.tasks}`}
         />
       </StyledRestTaskListAccordionSummary>
       <StyledRestTaskListAccordionDetails>
@@ -45,13 +46,11 @@ const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskL
             description={description}
             isDone={isDone}
             priorityColor={getPriorityColor(priority)}
-            openFullDescriptionModal={openFullDescriptionModal}
           />
         ))}
       </StyledRestTaskListAccordionDetails>
     </StyledRestTaskListAccordion>
-      )
-    : null;
+  );
 };
 
 export default RestTaskListComponent;

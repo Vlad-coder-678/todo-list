@@ -18,6 +18,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 // styles
 import "./index.css";
+import ModalsShowProvider from "./providers/ModalsShowProvider";
 
 const app = ReactDOM.createRoot(
   document.getElementById("app") as HTMLElement,
@@ -29,11 +30,13 @@ app.render(
   <StrictMode>
     <StyledEngineProvider injectFirst>
       <ThemeContextProvider>
-        <TaskListContextProvider>
-          <QueryClientProvider client={queryClient}>
-            <App />
-          </QueryClientProvider>
-        </TaskListContextProvider>
+        <ModalsShowProvider>
+          <TaskListContextProvider>
+            <QueryClientProvider client={queryClient}>
+              <App />
+            </QueryClientProvider>
+          </TaskListContextProvider>
+        </ModalsShowProvider>
       </ThemeContextProvider>
     </StyledEngineProvider>
   </StrictMode>,

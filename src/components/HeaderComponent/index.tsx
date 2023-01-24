@@ -1,5 +1,5 @@
 // vendor imports
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import {
   IconButton,
   Toolbar,
@@ -11,12 +11,13 @@ import { Settings } from "@mui/icons-material";
 
 // locale imports
 // constants
-import text from "../../constants/text";
+import TEXT from "../../constants/text";
 // types
-import { HeaderComponentPropsType } from "../../types/types";
+import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 
-const HeaderComponent: FC<HeaderComponentPropsType> = ({ handleClick }) => {
+const HeaderComponent: FC = () => {
   const theme = useTheme();
+  const { handleOpenMenu } = useContext(ModalsShowContext);
 
   return (
     <AppBar
@@ -49,14 +50,14 @@ const HeaderComponent: FC<HeaderComponentPropsType> = ({ handleClick }) => {
             paddingLeft: "11px",
           }}
         >
-          {text.mainTitle}
+          {TEXT.mainTitle}
         </Typography>
 
         <IconButton
           edge="start"
           color="inherit"
           aria-label="menu"
-          onClick={handleClick}
+          onClick={handleOpenMenu}
           sx={{ paddingRight: "14px" }}
         >
           <Settings

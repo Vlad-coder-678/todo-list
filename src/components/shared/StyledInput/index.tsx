@@ -1,12 +1,10 @@
-import React, { ChangeEventHandler, FC } from "react";
+// vendor imports
+import React, { FC } from "react";
 import { TextField } from "@mui/material";
 
-interface StyledInputPropsType {
-  value: string,
-  onChange: ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>,
-  label: string,
-  name: string,
-}
+// local imports
+// types
+import { StyledInputPropsType } from "../../../types/types";
 
 const StyledInput: FC<StyledInputPropsType> = ({
   value,

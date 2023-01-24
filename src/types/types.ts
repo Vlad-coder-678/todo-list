@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode } from "react";
+import { ChangeEventHandler, Dispatch, ReactNode, SetStateAction } from "react";
 
 interface TaskType {
   id: number,
@@ -29,8 +29,41 @@ interface ThemeContextProviderType {
   children: ReactNode,
 }
 
-interface HeaderComponentPropsType {
-  handleClick: (event: MouseEvent<HTMLElement>) => void,
+interface RestTaskListComponentPropTypes {
+  date: string,
+  taskList: TaskType[],
+  index: number,
+}
+
+interface EditTaskFormComponenPropsType {
+  currentTaskId: { date: string; id: number },
+  onClose: () => void,
+}
+
+interface SnackComponentType {
+  autoHideDuration: number,
+  isShow: boolean,
+  snackText: string,
+  handleSnackClose: Dispatch<SetStateAction<boolean>>,
+  snackMessage: string,
+  snackAction: ReactNode,
+  snackSeverity?: "success" | "info" | "warning" | "error",
+}
+
+interface StyledInputPropsType {
+  value: string,
+  onChange: ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>,
+  label: string,
+  name: string,
+}
+
+interface TaskCardComponentPropsType {
+  date: string,
+  id: number,
+  title: string,
+  description: string,
+  isDone: boolean,
+  priorityColor: string,
 }
 
 export type {
@@ -38,6 +71,10 @@ export type {
   TaskListType,
   TaskListContextType,
   ThemeContextProviderType,
-  HeaderComponentPropsType,
   updateTaskListPropsType,
+  RestTaskListComponentPropTypes,
+  EditTaskFormComponenPropsType,
+  SnackComponentType,
+  StyledInputPropsType,
+  TaskCardComponentPropsType,
 };

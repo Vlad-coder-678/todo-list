@@ -1,11 +1,8 @@
-import { Typography, useTheme } from "@mui/material";
+// vendor imports
 import React, { FC } from "react";
+import { Typography, useTheme } from "@mui/material";
 
-interface TaskListTitleComponentPropsType {
-  title: string,
-};
-
-const TaskListOfDayTitleComponent: FC<TaskListTitleComponentPropsType> = ({ title }) => {
+const TaskListOfDayTitleComponent: FC<{ title: string }> = ({ title }) => {
   const theme = useTheme();
 
   return (

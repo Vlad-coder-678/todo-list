@@ -13,33 +13,25 @@ import { TaskListType } from "../../types/types";
 // components
 import StyledDialog from "../shared/StyledDialog";
 import EditTaskFormComponen from "../EditTaskFormComponent";
+import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 
-interface Props {
-  open: boolean,
-  onClose: () => void,
-  currentTaskId: { date: string; id: number },
-}
-
-const FullTaskDescriptionModal: FC<Props> = ({
-  open,
-  onClose,
-  currentTaskId,
-}) => {
+const FullTaskDescriptionModal: FC = () => {
   const [isShowForm, setIsShowForm] = useState(false);
   const taskListContext = useContext(TaskListContext);
+  const { currentTaskId, isShowFullTaskDescriptionModal, closeFullDescriptionModal } = useContext(ModalsShowContext);
 
   const { [currentTaskId.date]: currentTaskList } = taskListContext?.taskList as TaskListType;
   const currentTask = currentTaskList.filter(({ id }) => (id === currentTaskId.id))[0];
 
   const handleRemoveTask = () => {
-    onClose();
+    closeFullDescriptionModal();
     taskListContext?.removeTask(currentTaskId);
   };
 
   return (
     <StyledDialog
-      open={open}
-      onClose={onClose}
+      open={isShowFullTaskDescriptionModal}
+      onClose={closeFullDescriptionModal}
     >
       {isShowForm
         ? (<EditTaskFormComponen onClose={() => setIsShowForm(false)} currentTaskId={currentTaskId} />)

@@ -1,12 +1,8 @@
-import { Typography, useTheme } from "@mui/material";
+// vendor imports
 import React, { FC, ReactNode } from "react";
+import { Typography, useTheme } from "@mui/material";
 
-interface TaskTitleComponentPropsType {
-  isDone: boolean,
-  children: ReactNode,
-};
-
-const TaskTitleComponent: FC<TaskTitleComponentPropsType> = ({ isDone, children }) => {
+const TaskTitleComponent: FC<{ isDone: boolean; children: ReactNode }> = ({ isDone, children }) => {
   const theme = useTheme();
 
   return (

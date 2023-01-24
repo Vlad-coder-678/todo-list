@@ -1,7 +1,10 @@
+// vendor imports
 import React from "react";
 import { Container, ContainerProps, styled } from "@mui/material";
 
-const StyledContainer = styled((props: ContainerProps) => (<Container {...props} />))(({ theme }) => ({
+const StyledContainer = styled((props: ContainerProps) => (
+  <Container {...props} />
+))(({ theme }) => ({
   width: "390px",
   height: "844px",
   borderRadius: "30px",

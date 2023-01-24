@@ -8,6 +8,7 @@ import React, {
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { PaletteMode } from "@mui/material";
 
+// local imports
 // types
 import { ThemeContextProviderType } from "../types/types";
 // utilities
