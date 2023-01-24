@@ -5,6 +5,8 @@ import Marquee from "react-fast-marquee";
 import { Box, useTheme } from "@mui/material";
 
 // local imports
+// constnats
+import TEXT from "../../constants/text";
 // providers
 import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 
@@ -37,7 +39,7 @@ const NewsModal: FC = () => {
         position: "absolute",
         bottom: "60px",
         height: "77px",
-        maxWidth: "390px",
+        width: "390px",
         backgroundColor: getMarqueeBGColor(),
         color: isLoading ? theme.palette.common.black : theme.palette.text.primary,
         fontSize: "24px",
@@ -49,9 +51,9 @@ const NewsModal: FC = () => {
         gradient={false}
         speed={20}
       >
-        {isError && <p>Error message: {(error as any).message}</p>}
-        {isLoading && <p>Loading...</p>}
-        {data?.articles?.length > 0 ? (<p>{data.articles[0].description}</p>) : (<p>No results</p>)}
+        {isError && <p>{TEXT.errorMessage}{(error as any).message}</p>}
+        {isLoading && <p>{TEXT.newsIsLoading}</p>}
+        {data?.articles?.length > 0 ? (<p>{data.articles[0].description}</p>) : (!isLoading && <p>{TEXT.noResults}</p>)}
       </Marquee>
     </Box>
   );
