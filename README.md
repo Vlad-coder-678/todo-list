@@ -1,13 +1,14 @@
 # ToDo List App
 
-(Репозиторий)[https://github.com/Vlad-coder-678/todo-list]
-(Деплой)[https://stately-melba-2a7a4d.netlify.app/] на Netlify
+Репозиторий [здесь](https://github.com/Vlad-coder-678/todo-list)
 
-![app view](https://github.com/Vlad-coder-678/todo-list/blob/main/public/ToDo_List_App_View.jpg)
+Деплой [здесь](https://stately-melba-2a7a4d.netlify.app/)
 
 ### Макет
 
 https://www.figma.com/file/C8X04jX085jFMQsEWTkoZD/To-Do-List-App-UI-(Community)-(Copy)?node-id=1%3A17
+
+![app view](https://github.com/Vlad-coder-678/todo-list/blob/main/public/ToDo_List_App_View.jpg)
 
 ## Задача
 
