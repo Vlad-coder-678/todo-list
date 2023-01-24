@@ -23,6 +23,8 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
 }) => {
   const theme = useTheme();
   const taskListContext = useContext(TaskListContext);
+  const { openFullTaskDescriptionModal } = useContext(ModalsShowContext);
+
   const handleChangeTaskStatus = () => {
     taskListContext?.updateTaskList({
       date,
@@ -31,7 +33,6 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
       value: !isDone,
     });
   };
-  const { openFullTaskDescriptionModal } = useContext(ModalsShowContext);
 
   return (
     <Box

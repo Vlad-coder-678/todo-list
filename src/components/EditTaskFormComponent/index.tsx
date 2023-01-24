@@ -31,7 +31,7 @@ const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ onClose }) =>
     });
   };
 
-  const handleClosemodal = () => {
+  const handleCloseModal = () => {
     closeFullDescriptionModal();
     onClose();
   };
@@ -80,7 +80,7 @@ const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ onClose }) =>
           <MenuItem value={TEXT.low.toLowerCase()}>{TEXT.low}</MenuItem>
         </Select>
       </Box>
-      <IconButton onClick={handleClosemodal}>
+      <IconButton onClick={handleCloseModal}>
         <Save color="success" />
       </IconButton>
     </FormControl>

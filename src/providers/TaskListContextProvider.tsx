@@ -9,7 +9,7 @@ import React, {
 // mock
 import TASK_LIST from "../mock/task-list";
 // types
-import { TaskListContextType, TaskListType, updateTaskListPropsType } from "../types/types";
+import { addNewTaskPropsType, TaskListContextType, TaskListType, updateTaskListPropsType } from "../types/types";
 
 export const TaskListContext = createContext<TaskListContextType | null>(null);
 
@@ -17,10 +17,7 @@ const TaskListContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [taskList, setTaskList] = useState(TASK_LIST);
 
   const updateTaskList = ({
-    date,
-    id,
-    property,
-    value,
+    date, id, property, value,
   }: updateTaskListPropsType) => {
     setTaskList((state) => {
       const newTaskListOfDate = (state as TaskListType)[date]?.map((task) => (task.id === id ? { ...task, [property]: value } : task));
@@ -38,10 +35,26 @@ const TaskListContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
     });
   };
 
+  const addNewTask = ({ date, title, description, priority }: addNewTaskPropsType) => {
+    setTaskList((state) => {
+      if (typeof (state as TaskListType)[date] === "undefined" || (state as TaskListType)[date].length === 0) {
+        const newTaskListOfDate = [{ id: 1, title, description, priority, isDone: false }];
+
+        return ({ ...state, [date]: newTaskListOfDate });
+      } else {
+        const maxIndex = [...(state as TaskListType)[date]].sort((a, b) => (b.id - a.id))[0].id;
+        const newTaskListOfDate = [...(state as TaskListType)[date], { id: (maxIndex + 1), title, description, priority, isDone: false }];
+
+        return ({ ...state, [date]: newTaskListOfDate });
+      }
+    });
+  };
+
   const value = {
     taskList,
     removeTask,
     updateTaskList,
+    addNewTask,
   };
 
   return (

@@ -35,7 +35,10 @@ const ModalsShowProvider = ({ children }: { children: ReactNode }) => {
 
   // new task modal state
   const [isShowNewTaskModal, setIsShowNewTaskModal] = useState(false);
-  const handleOpenNewTaskModal = () => setIsShowNewTaskModal(true);
+  const handleOpenNewTaskModal = () => {
+    handleCloseMenu();
+    setIsShowNewTaskModal(true);
+  };
   const handleCloseNewTaskModal = () => setIsShowNewTaskModal(false);
 
   const value = {

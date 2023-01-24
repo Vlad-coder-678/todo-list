@@ -19,10 +19,18 @@ interface updateTaskListPropsType {
   value: string | number | boolean,
 }
 
+interface addNewTaskPropsType {
+  date: string,
+  title: string,
+  description: string,
+  priority: string,
+}
+
 interface TaskListContextType {
   taskList: TaskListType,
   updateTaskList: (props: updateTaskListPropsType) => void,
   removeTask: ({ date, id }: { date: string; id: number }) => void,
+  addNewTask: ({ date, title, description, priority }: addNewTaskPropsType) => void,
 }
 
 interface ThemeContextProviderType {
@@ -70,6 +78,7 @@ export type {
   TaskListType,
   TaskListContextType,
   ThemeContextProviderType,
+  addNewTaskPropsType,
   updateTaskListPropsType,
   RestTaskListComponentPropTypes,
   EditTaskFormComponenPropsType,
