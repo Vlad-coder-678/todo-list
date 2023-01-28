@@ -84,9 +84,11 @@ const EditTaskFormComponen: FC<EditTaskFormComponenProps> = ({ onClose }) => {
 
       <Divider sx={{ padding: "10px 0" }} />
 
-      <IconButton onClick={handleCloseModal}>
-        <Save color="success" />
-      </IconButton>
+      <Box>
+        <IconButton onClick={handleCloseModal}>
+          <Save color="success" />
+        </IconButton>
+      </Box>
     </FormControl>
   );
 };

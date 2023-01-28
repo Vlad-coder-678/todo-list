@@ -111,9 +111,11 @@ const AddNewTaskModal = () => {
 
             <Divider sx={{ padding: "10px 0" }} />
 
-            <IconButton onClick={submitForm}>
-              <Save color="success" />
-            </IconButton>
+            <Box>
+              <IconButton onClick={submitForm}>
+                <Save color="success" />
+              </IconButton>
+            </Box>
           </FormControl>
         </LocalizationProvider>
       </StyledDialogContent>
