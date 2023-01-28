@@ -28,13 +28,13 @@ const AddNewTaskModal = () => {
   const taskListContext = useContext(TaskListContext);
   const { isShowNewTaskModal, handleCloseNewTaskModal } = useContext(ModalsShowContext);
 
-  if (!(isShowNewTaskModal as boolean)) return null;
-
   const handleChangeFields = (event: SelectChangeEvent<string> | { target: { name: string; value: string } }) => {
     const { name, value } = event.target;
 
     setFields((state) => ({ ...state, [name]: value }));
   };
+
+  const handleChangeDate = (value: string | null) => setDate(dayjs(value).format("MM/DD/YYYY"));
 
   const submitForm = () => {
     handleCloseNewTaskModal();
@@ -46,6 +46,8 @@ const AddNewTaskModal = () => {
     });
     setFields(DEFAULT_FIELDS);
   };
+
+  if (!(isShowNewTaskModal as boolean)) return null;
 
   return (
     <StyledDialog
@@ -70,19 +72,19 @@ const AddNewTaskModal = () => {
             label="Date"
             inputFormat="MM/DD/YYYY"
             value={date}
-            onChange={value => setDate(dayjs(value).format("MM/DD/YYYY"))}
+            onChange={handleChangeDate}
             renderInput={(params) => <TextField {...params} />}
           />
           <StyledInput
             value={fields?.title ?? ""}
             name="title"
-            label={"title".toUpperCase()}
+            label="TITLE"
             onChange={handleChangeFields}
           />
           <StyledInput
             value={fields?.description ?? ""}
             name="description"
-            label={"description".toUpperCase()}
+            label="DESCRIPTION"
             onChange={handleChangeFields}
           />
           <Box
@@ -94,7 +96,7 @@ const AddNewTaskModal = () => {
             <span>{TEXT.priority}</span>
             <Select
               value={fields?.priority ?? ""}
-              label={fields?.priority ?? ""}
+              label="PRIORITY"
               name={TEXT.priority.toLowerCase()}
               onChange={handleChangeFields}
             >

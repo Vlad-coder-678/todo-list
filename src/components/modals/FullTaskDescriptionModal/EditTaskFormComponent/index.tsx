@@ -5,14 +5,14 @@ import { Save } from "@mui/icons-material";
 
 // local imports
 // constants
-import TEXT from "../../constants/text";
+import TEXT from "../../../../constants/text";
 // types
-import { EditTaskFormComponenPropsType, TaskListType } from "../../types/types";
+import { EditTaskFormComponenPropsType, TaskListType } from "../../../../types/types";
 // providers
-import { TaskListContext } from "../../providers/TaskListContextProvider";
+import { TaskListContext } from "../../../../providers/TaskListContextProvider";
 // components
-import StyledInput from "../shared/StyledInput";
-import { ModalsShowContext } from "../../providers/ModalsShowProvider";
+import StyledInput from "../../../shared/StyledInput";
+import { ModalsShowContext } from "../../../../providers/ModalsShowProvider";
 
 const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ onClose }) => {
   const taskListContext = useContext(TaskListContext);
@@ -53,13 +53,13 @@ const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ onClose }) =>
       <StyledInput
         value={currentTask?.title ?? ""}
         name="title"
-        label={"title".toUpperCase()}
+        label="TITLE"
         onChange={handleChangeFields}
       />
       <StyledInput
         value={currentTask?.description ?? ""}
         name="description"
-        label={"description".toUpperCase()}
+        label="DESCRIPTION"
         onChange={handleChangeFields}
       />
       <Box
@@ -71,7 +71,7 @@ const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ onClose }) =>
         <span>{TEXT.priority}</span>
         <Select
           value={currentTask?.priority ?? ""}
-          label={currentTask?.priority ?? ""}
+          label="PRIORITY"
           name={TEXT.priority.toLowerCase()}
           onChange={handleChangeFields}
         >

@@ -12,8 +12,8 @@ import { TaskListContext } from "../../providers/TaskListContextProvider";
 import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 // components
 import StyledSwitch from "../shared/StyledSwitch";
-import TaskDescriptionComponent from "../TaskDescriptionComponent";
-import TaskTitleComponent from "../TaskTitleComponent";
+import TaskDescriptionComponent from "./TaskDescriptionComponent";
+import TaskTitleComponent from "./TaskTitleComponent";
 
 const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
   date,

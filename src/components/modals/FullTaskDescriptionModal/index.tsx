@@ -13,7 +13,7 @@ import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
 import { TaskListType } from "../../../types/types";
 // components
 import StyledDialog from "../../shared/StyledDialog";
-import EditTaskFormComponen from "../../EditTaskFormComponent";
+import EditTaskFormComponen from "./EditTaskFormComponent";
 
 const FullTaskDescriptionModal: FC = () => {
   const [isShowForm, setIsShowForm] = useState(false);
@@ -28,13 +28,16 @@ const FullTaskDescriptionModal: FC = () => {
     taskListContext?.removeTask(currentTaskId);
   };
 
+  const handleOpenForm = () => setIsShowForm(true);
+  const handleCloseForm = () => setIsShowForm(false);
+
   return (
     <StyledDialog
       open={isShowFullTaskDescriptionModal}
       onClose={closeFullDescriptionModal}
     >
       {isShowForm
-        ? (<EditTaskFormComponen onClose={() => setIsShowForm(false)} />)
+        ? (<EditTaskFormComponen onClose={handleCloseForm} />)
         : (
           <>
             <h4>{currentTask?.title ?? ""}</h4>
@@ -46,7 +49,7 @@ const FullTaskDescriptionModal: FC = () => {
                 margin: "10px",
               }}
             >
-              <IconButton onClick={() => setIsShowForm(true)}>
+              <IconButton onClick={handleOpenForm}>
                 <Edit color="warning" />
               </IconButton>
               <IconButton onClick={handleRemoveTask}>
