@@ -8,6 +8,7 @@ import React, {
 
 // local import
 import TASK_LIST from "../mock/task-list";
+import { CurrentTaskIdType } from "../types";
 
 export const ModalsShowContext = createContext<any>(null);
 
@@ -23,7 +24,7 @@ const ModalsShowProvider = ({ children }: { children: ReactNode }) => {
   const [isShowFullTaskDescriptionModal, setIsShowFullTaskDescriptionModal] = useState(false);
   const [currentTaskId, setCurrentTaskId] = useState({ date: Object.keys(TASK_LIST)[0], id: 1 });
 
-  const openFullTaskDescriptionModal = ({ date, id }: { date: string; id: number }) => {
+  const openFullTaskDescriptionModal = ({ date, id }: CurrentTaskIdType) => {
     setCurrentTaskId({ date, id });
     setIsShowFullTaskDescriptionModal(true);
   };

@@ -10,7 +10,7 @@ import { DeleteForever, Edit } from "@mui/icons-material";
 import { TaskListContext } from "../../../providers/TaskListContextProvider";
 import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
 // types
-import { TaskListType } from "../../../types/types";
+import { TaskListType } from "../../../types";
 // components
 import StyledDialog from "../../shared/StyledDialog";
 import EditTaskFormComponen from "./EditTaskFormComponent";

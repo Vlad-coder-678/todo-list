@@ -4,7 +4,7 @@ import { Alert, Snackbar } from "@mui/material";
 
 // local imports
 // types
-import { SnackComponentType } from "../../../types/types";
+import { SnackComponentType } from "../../../types/components";
 
 const SnackComponent: FC<SnackComponentType> = ({
   autoHideDuration,

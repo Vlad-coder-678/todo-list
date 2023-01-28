@@ -10,7 +10,7 @@ import { PaletteMode } from "@mui/material";
 
 // local imports
 // types
-import { ThemeContextProviderType } from "../types/types";
+import { ThemeContextProviderType } from "../types/contexts";
 // utilities
 import getDesignTokens from "../utilities/getDesignToken";
 

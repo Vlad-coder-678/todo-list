@@ -5,7 +5,7 @@ import React, { FC, useState } from "react";
 // constants
 import TEXT from "../../constants/text";
 // types
-import { TaskType } from "../../types/types";
+import { TaskType } from "../../types";
 // utilities
 import getPriorityColor from "../../utilities/getPriorityColor";
 import getTodayDate from "../../utilities/getTodayDate";

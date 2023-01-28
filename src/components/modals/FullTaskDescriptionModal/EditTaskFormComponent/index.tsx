@@ -7,7 +7,8 @@ import { Save } from "@mui/icons-material";
 // constants
 import TEXT from "../../../../constants/text";
 // types
-import { EditTaskFormComponenPropsType, TaskListType } from "../../../../types/types";
+import { TaskListType } from "../../../../types";
+import { EditTaskFormComponenPropsType } from "../../../../types/components";
 // providers
 import { TaskListContext } from "../../../../providers/TaskListContextProvider";
 // components

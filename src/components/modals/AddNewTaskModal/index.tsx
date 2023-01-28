@@ -10,7 +10,7 @@ import dayjs from "dayjs";
 // constants
 import TEXT from "../../../constants/text";
 // types
-import { TaskType } from "../../../types/types";
+import { TaskType } from "../../../types";
 // provider
 import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
 import { TaskListContext } from "../../../providers/TaskListContextProvider";
@@ -37,13 +37,13 @@ const AddNewTaskModal = () => {
   const handleChangeDate = (value: string | null) => setDate(dayjs(value).format("MM/DD/YYYY"));
 
   const submitForm = () => {
-    handleCloseNewTaskModal();
     taskListContext?.addNewTask({
       date: dayjs(date).format("DD/MM/YYYY"),
       title: fields?.title,
       description: fields?.description,
       priority: fields?.priority,
     });
+    handleCloseNewTaskModal();
     setFields(DEFAULT_FIELDS);
   };
 

@@ -7,7 +7,7 @@ import { ExpandCircleDown } from "@mui/icons-material";
 // constants
 import TEXT from "../../constants/text";
 // types
-import { RestTaskListComponentPropTypes } from "../../types/types";
+import { RestTaskListComponentPropTypes } from "../../types/components";
 // utilities
 import getPriorityColor from "../../utilities/getPriorityColor";
 // components

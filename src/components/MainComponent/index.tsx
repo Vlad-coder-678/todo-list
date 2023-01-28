@@ -14,7 +14,7 @@ import TaskListOfDayTitleComponent from "../TaskListOfDayTitleComponent";
 // utilities
 import getTodayDate from "../../utilities/getTodayDate";
 // types
-import { TaskListType } from "../../types/types";
+import { TaskListType } from "../../types";
 
 const MainComponent: FC = () => {
   const taskListContext = useContext(TaskListContext);

@@ -6,7 +6,7 @@ import { Box, useTheme } from "@mui/material";
 // constants
 import TEXT from "../../constants/text";
 // types
-import { TaskCardComponentPropsType } from "../../types/types";
+import { TaskCardComponentPropsType } from "../../types/components";
 // providers
 import { TaskListContext } from "../../providers/TaskListContextProvider";
 import { ModalsShowContext } from "../../providers/ModalsShowProvider";

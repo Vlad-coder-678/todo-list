@@ -1,41 +1,5 @@
 import { ChangeEventHandler, Dispatch, ReactNode, SetStateAction } from "react";
-
-interface TaskType {
-  id: number,
-  title: string,
-  description: string,
-  priority: string,
-  isDone: boolean,
-}
-
-interface TaskListType {
-  [date: string]: TaskType[],
-}
-
-interface updateTaskListPropsType {
-  date: string,
-  id: number,
-  property: string,
-  value: string | number | boolean,
-}
-
-interface addNewTaskPropsType {
-  date: string,
-  title: string,
-  description: string,
-  priority: string,
-}
-
-interface TaskListContextType {
-  taskList: TaskListType,
-  updateTaskList: (props: updateTaskListPropsType) => void,
-  removeTask: ({ date, id }: { date: string; id: number }) => void,
-  addNewTask: ({ date, title, description, priority }: addNewTaskPropsType) => void,
-}
-
-interface ThemeContextProviderType {
-  children: ReactNode,
-}
+import { TaskType } from ".";
 
 interface RestTaskListComponentPropTypes {
   date: string,
@@ -74,15 +38,9 @@ interface TaskCardComponentPropsType {
 }
 
 export type {
-  TaskType,
-  TaskListType,
-  TaskListContextType,
-  ThemeContextProviderType,
-  addNewTaskPropsType,
-  updateTaskListPropsType,
+  StyledInputPropsType,
   RestTaskListComponentPropTypes,
   EditTaskFormComponenPropsType,
   SnackComponentType,
-  StyledInputPropsType,
   TaskCardComponentPropsType,
 };

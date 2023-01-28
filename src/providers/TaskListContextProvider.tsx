@@ -6,10 +6,12 @@ import React, {
   useState,
 } from "react";
 
+// local imports
 // mock
 import TASK_LIST from "../mock/task-list";
 // types
-import { addNewTaskPropsType, TaskListContextType, TaskListType, updateTaskListPropsType } from "../types/types";
+import { CurrentTaskIdType, TaskListType } from "../types";
+import { addNewTaskPropsType, TaskListContextType, updateTaskListPropsType } from "../types/contexts";
 
 export const TaskListContext = createContext<TaskListContextType | null>(null);
 
@@ -26,7 +28,7 @@ const TaskListContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
     });
   };
 
-  const removeTask = ({ date, id }: { date: string; id: number }) => {
+  const removeTask = ({ date, id }: CurrentTaskIdType) => {
     setTaskList((state) => {
       const newTaskListOfDate = (state as TaskListType)[date]?.filter((task) => (task.id !== id))
         .map((task, index) => ({ ...task, id: index + 1 }));
