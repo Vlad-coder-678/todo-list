@@ -1,7 +1,7 @@
 // vendor imports
 import React, { FC, useContext } from "react";
+import { Box, IconButton, useTheme } from "@mui/material";
 import { SpeakerNotes, SpeakerNotesOff } from "@mui/icons-material";
-import { Box, IconButton } from "@mui/material";
 
 // local imports
 // constants
@@ -11,6 +11,7 @@ import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
 
 const ToggleNewsModalComponent: FC = () => {
   const { isShowNewsModal, toggleShowNewsModal } = useContext(ModalsShowContext);
+  const theme = useTheme();
 
   return (
     <Box
@@ -19,8 +20,8 @@ const ToggleNewsModalComponent: FC = () => {
         width: "100%",
         alignItems: "center",
         justifyContent: "flex-start",
-        bgcolor: "background.default",
-        color: "text.primary",
+        bgcolor: theme.palette.background.default,
+        color: theme.palette.text.primary,
         borderRadius: 1,
         p: 3,
       }}

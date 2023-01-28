@@ -14,6 +14,8 @@ const TEXT = {
   noResults: "No results for your query, try refreshing the page. ",
   errorMessage: "Error message: ",
   addNewTask: "add new task",
+  emptyTodayTaskList: "Today nothing to do",
+  emptyTitle: "Empty title",
 };
 
 export default TEXT;

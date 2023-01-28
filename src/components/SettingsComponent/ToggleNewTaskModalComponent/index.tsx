@@ -1,7 +1,7 @@
 // vendor imports
 import React, { FC, useContext } from "react";
+import { Box, IconButton, useTheme } from "@mui/material";
 import { LibraryAdd } from "@mui/icons-material";
-import { Box, IconButton } from "@mui/material";
 
 // local imports
 // constants
@@ -11,6 +11,7 @@ import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
 
 const ToggleNewTaskModalComponent: FC = () => {
   const { handleOpenNewTaskModal } = useContext(ModalsShowContext);
+  const theme = useTheme();
 
   return (
     <Box
@@ -19,8 +20,8 @@ const ToggleNewTaskModalComponent: FC = () => {
         width: "100%",
         alignItems: "center",
         justifyContent: "flex-start",
-        bgcolor: "background.default",
-        color: "text.primary",
+        bgcolor: theme.palette.background.default,
+        color: theme.palette.text.primary,
         borderRadius: 1,
         p: 3,
       }}

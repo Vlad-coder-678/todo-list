@@ -21,8 +21,8 @@ function ToggleThemeModeComponent () {
         width: "100%",
         alignItems: "center",
         justifyContent: "flex-start",
-        bgcolor: "background.default",
-        color: "text.primary",
+        bgcolor: theme.palette.background.default,
+        color: theme.palette.text.primary,
         borderRadius: 1,
         p: 3,
       }}

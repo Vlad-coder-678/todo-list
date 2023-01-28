@@ -13,6 +13,7 @@ import TaskListOfDayTitleComponent from "../TaskListOfDayTitleComponent";
 import getTodayDate from "../../utilities/getTodayDate";
 // types
 import { TaskListType } from "../../types/types";
+import TEXT from "../../constants/text";
 
 const MainComponent: FC = () => {
   const taskListContext = useContext(TaskListContext);
@@ -33,7 +34,7 @@ const MainComponent: FC = () => {
     >
       {todayTaskList.length > 0
         ? (<TodayTaskListComponent todayTaskList={todayTaskList} />)
-        : (<TaskListOfDayTitleComponent title="Today nothing to do"/>)}
+        : (<TaskListOfDayTitleComponent title={TEXT.emptyTodayTaskList}/>)}
 
       {Object.entries(restTaskLists)?.map(([date, taskList], index) => (
         <RestTaskListComponent

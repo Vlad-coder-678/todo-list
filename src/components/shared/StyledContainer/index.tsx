@@ -11,7 +11,6 @@ const StyledContainer = styled((props: ContainerProps) => (
   backgroundColor: theme.palette.background.default,
   overflow: "scroll",
   padding: "0",
-  "-ms-overflow-style": "none",
   scrollbarWidth: "none",
   paddingBottom: "30px",
   "&::-webkit-scrollbar": {

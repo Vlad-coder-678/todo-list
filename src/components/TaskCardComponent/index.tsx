@@ -12,6 +12,7 @@ import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 import StyledSwitch from "../shared/StyledSwitch";
 import TaskDescriptionComponent from "../TaskDescriptionComponent";
 import TaskTitleComponent from "../TaskTitleComponent";
+import TEXT from "../../constants/text";
 
 const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
   date,
@@ -63,7 +64,7 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
         }}
       >
         <TaskTitleComponent isDone={isDone}>
-          {title}
+          {title ?? TEXT.emptyTitle}
         </TaskTitleComponent>
         <TaskDescriptionComponent>
           {description}
