@@ -11,21 +11,23 @@ import { TaskListContext } from "../../../providers/TaskListContextProvider";
 import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
 // types
 import { TaskListType } from "../../../types";
+// utilities
+import getTodayDate from "../../../utilities/getTodayDate";
 // components
 import StyledDialog from "../../shared/StyledDialog";
 import EditTaskFormComponen from "./EditTaskFormComponent";
 
 const FullTaskDescriptionModal: FC = () => {
   const [isShowForm, setIsShowForm] = useState(false);
-  const taskListContext = useContext(TaskListContext);
-  const { currentTaskId, isShowFullTaskDescriptionModal, closeFullDescriptionModal } = useContext(ModalsShowContext);
+  const taskListState = useContext(TaskListContext);
+  const modalsShowState = useContext(ModalsShowContext);
 
-  const { [currentTaskId.date]: currentTaskList } = taskListContext?.taskList as TaskListType;
-  const currentTask = currentTaskList.filter(({ id }) => (id === currentTaskId.id))[0];
+  const { [modalsShowState?.currentTaskId.date ?? getTodayDate()]: currentTaskList } = taskListState?.taskList as TaskListType;
+  const currentTask = currentTaskList.filter(({ id }: { id: number }) => (id === modalsShowState?.currentTaskId.id))[0];
 
   const handleRemoveTask = () => {
-    closeFullDescriptionModal();
-    taskListContext?.removeTask(currentTaskId);
+    modalsShowState?.closeFullDescriptionModal();
+    if ((modalsShowState?.currentTaskId) != null) taskListState?.removeTask(modalsShowState?.currentTaskId);
   };
 
   const handleOpenForm = () => setIsShowForm(true);
@@ -33,8 +35,8 @@ const FullTaskDescriptionModal: FC = () => {
 
   return (
     <StyledDialog
-      open={isShowFullTaskDescriptionModal}
-      onClose={closeFullDescriptionModal}
+      open={modalsShowState?.isShowFullTaskDescriptionModal ?? false}
+      onClose={modalsShowState?.closeFullDescriptionModal}
     >
       {isShowForm
         ? (<EditTaskFormComponen onClose={handleCloseForm} />)

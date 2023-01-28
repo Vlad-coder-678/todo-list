@@ -25,8 +25,8 @@ const DEFAULT_FIELDS = { id: 0, title: "", description: "", priority: "low", isD
 const AddNewTaskModal = () => {
   const [date, setDate] = useState<string>(getTodayDate());
   const [fields, setFields] = useState<TaskType>(DEFAULT_FIELDS);
-  const taskListContext = useContext(TaskListContext);
-  const { isShowNewTaskModal, handleCloseNewTaskModal } = useContext(ModalsShowContext);
+  const taskListState = useContext(TaskListContext);
+  const modalsShowState = useContext(ModalsShowContext);
 
   const handleChangeFields = (event: SelectChangeEvent<string> | { target: { name: string; value: string } }) => {
     const { name, value } = event.target;
@@ -37,22 +37,20 @@ const AddNewTaskModal = () => {
   const handleChangeDate = (value: string | null) => setDate(dayjs(value).format("MM/DD/YYYY"));
 
   const submitForm = () => {
-    taskListContext?.addNewTask({
+    taskListState?.addNewTask({
       date: dayjs(date).format("DD/MM/YYYY"),
       title: fields?.title,
       description: fields?.description,
       priority: fields?.priority,
     });
-    handleCloseNewTaskModal();
+    modalsShowState?.handleCloseNewTaskModal();
     setFields(DEFAULT_FIELDS);
   };
 
-  if (!(isShowNewTaskModal as boolean)) return null;
-
   return (
     <StyledDialog
-      open={isShowNewTaskModal}
-      onClose={handleCloseNewTaskModal}
+      open={modalsShowState?.isShowNewTaskModal ?? false}
+      onClose={modalsShowState?.handleCloseNewTaskModal}
     >
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <FormControl

@@ -12,7 +12,7 @@ import { ColorModeContext } from "../../../../providers/ThemeContextProvider";
 
 function ToggleThemeModeComponent () {
   const theme = useTheme();
-  const colorMode = useContext(ColorModeContext);
+  const themeModeState = useContext(ColorModeContext);
 
   return (
     <Box
@@ -27,9 +27,7 @@ function ToggleThemeModeComponent () {
         p: 3,
       }}
     >
-      <IconButton
-        onClick={colorMode.toggleColorMode}
-      >
+      <IconButton onClick={themeModeState.toggleColorMode}>
         {theme.palette.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon color="action" />}
       </IconButton>
       {`${theme.palette.mode} mode`.toUpperCase()}

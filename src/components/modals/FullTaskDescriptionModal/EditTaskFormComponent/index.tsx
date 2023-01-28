@@ -14,26 +14,28 @@ import { TaskListContext } from "../../../../providers/TaskListContextProvider";
 // components
 import StyledInput from "../../../shared/StyledInput";
 import { ModalsShowContext } from "../../../../providers/ModalsShowProvider";
+import getTodayDate from "../../../../utilities/getTodayDate";
 
 const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ onClose }) => {
-  const taskListContext = useContext(TaskListContext);
-  const { currentTaskId, closeFullDescriptionModal } = useContext(ModalsShowContext);
-  const { [currentTaskId.date]: currentTaskList } = taskListContext?.taskList as TaskListType;
-  const currentTask = currentTaskList.filter(({ id }) => (id === currentTaskId.id))[0];
+  const taskListState = useContext(TaskListContext);
+  const modalsShowState = useContext(ModalsShowContext);
+  const currentTaskDate = modalsShowState?.currentTaskId.date ?? getTodayDate();
+  const { [currentTaskDate]: currentTaskList } = taskListState?.taskList as TaskListType;
+  const currentTask = currentTaskList.filter(({ id }: { id: number }) => (id === modalsShowState?.currentTaskId.id))[0];
 
   const handleChangeFields = (event: SelectChangeEvent<string> | { target: { name: string; value: string } }) => {
     const { name, value } = event.target;
 
-    taskListContext?.updateTaskList({
-      date: currentTaskId.date,
-      id: currentTaskId.id,
+    taskListState?.updateTaskList({
+      date: currentTaskDate,
+      id: modalsShowState?.currentTaskId.id ?? 0,
       property: name,
       value,
     });
   };
 
   const handleCloseModal = () => {
-    closeFullDescriptionModal();
+    modalsShowState?.closeFullDescriptionModal();
     onClose();
   };
 

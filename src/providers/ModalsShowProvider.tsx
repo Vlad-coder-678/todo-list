@@ -1,20 +1,23 @@
 // vendor import
 import React, {
   createContext,
+  FC,
   MouseEvent,
-  ReactNode,
   useState,
 } from "react";
 
 // local import
+// mock
 import TASK_LIST from "../mock/task-list";
+// types
 import { CurrentTaskIdType } from "../types";
+import { DefaultPropsType, ModalsShowContextType } from "../types/contexts";
 
-export const ModalsShowContext = createContext<any>(null);
+export const ModalsShowContext = createContext<ModalsShowContextType | null>(null);
 
-const ModalsShowProvider = ({ children }: { children: ReactNode }) => {
-  // menu (or settings) modal state
-  const [showMenuButtonAnchor, setShowMenuButtonAnchor] = useState<null | HTMLElement>(null);
+const ModalsShowProvider: FC<DefaultPropsType> = ({ children }) => {
+  // menu modal state
+  const [showMenuButtonAnchor, setShowMenuButtonAnchor] = useState<HTMLElement | null>(null);
   const isShowMenuModal = Boolean(showMenuButtonAnchor);
 
   const handleOpenMenu = (event: MouseEvent<HTMLElement>) => setShowMenuButtonAnchor(event.currentTarget);

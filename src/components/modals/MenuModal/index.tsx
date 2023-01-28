@@ -11,13 +11,13 @@ import ToggleNewsModalComponent from "./ToggleNewsModalComponent";
 import ToggleNewTaskModalComponent from "./ToggleNewTaskModalComponent";
 
 const MenuModal: FC = () => {
-  const { isShowMenuModal, handleCloseMenu, showMenuButtonAnchor } = useContext(ModalsShowContext);
+  const modalsShowState = useContext(ModalsShowContext);
 
   return (
     <StyledMenu
-      open={isShowMenuModal}
-      onClose={handleCloseMenu}
-      anchorEl={showMenuButtonAnchor}
+      open={modalsShowState?.isShowMenuModal ?? false}
+      onClose={modalsShowState?.handleCloseMenu}
+      anchorEl={modalsShowState?.showMenuButtonAnchor}
     >
       <ToggleThemeModeComponent />
       <ToggleNewsModalComponent />

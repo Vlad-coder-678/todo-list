@@ -24,13 +24,13 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
   priorityColor,
 }) => {
   const theme = useTheme();
-  const taskListContext = useContext(TaskListContext);
-  const { openFullTaskDescriptionModal } = useContext(ModalsShowContext);
+  const taskListState = useContext(TaskListContext);
+  const modalsShowState = useContext(ModalsShowContext);
 
-  const handleOpenFullTaskDescriptionModal = () => openFullTaskDescriptionModal({ date, id });
+  const handleOpenFullTaskDescriptionModal = () => modalsShowState?.openFullTaskDescriptionModal({ date, id });
 
   const handleChangeTaskStatus = () => {
-    taskListContext?.updateTaskList({
+    taskListState?.updateTaskList({
       date,
       id,
       property: "isDone",

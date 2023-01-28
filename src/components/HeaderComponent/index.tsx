@@ -17,7 +17,7 @@ import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 
 const HeaderComponent: FC = () => {
   const theme = useTheme();
-  const { handleOpenMenu } = useContext(ModalsShowContext);
+  const modalsShowState = useContext(ModalsShowContext);
 
   return (
     <AppBar
@@ -57,7 +57,7 @@ const HeaderComponent: FC = () => {
           edge="start"
           color="inherit"
           aria-label="menu"
-          onClick={handleOpenMenu}
+          onClick={modalsShowState?.handleOpenMenu}
           sx={{ paddingRight: "14px" }}
         >
           <Settings

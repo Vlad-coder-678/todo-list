@@ -12,7 +12,7 @@ import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
 
 const NewsModal: FC = () => {
   const theme = useTheme();
-  const { isShowNewsModal } = useContext(ModalsShowContext);
+  const modalsShowState = useContext(ModalsShowContext);
 
   const FULL_URL_NEWS_API = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=06ce86ba632e44f5a547738589d46c75";
 
@@ -23,7 +23,7 @@ const NewsModal: FC = () => {
     return results;
   });
 
-  if (!(isShowNewsModal as boolean)) return null;
+  if (!(modalsShowState?.isShowNewsModal as boolean)) return null;
 
   const getMarqueeBGColor = () => {
     switch (true) {

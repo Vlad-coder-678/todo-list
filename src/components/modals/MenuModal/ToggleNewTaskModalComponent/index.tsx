@@ -10,8 +10,8 @@ import TEXT from "../../../../constants/text";
 import { ModalsShowContext } from "../../../../providers/ModalsShowProvider";
 
 const ToggleNewTaskModalComponent: FC = () => {
-  const { handleOpenNewTaskModal } = useContext(ModalsShowContext);
   const theme = useTheme();
+  const modalsShowState = useContext(ModalsShowContext);
 
   return (
     <Box
@@ -26,7 +26,7 @@ const ToggleNewTaskModalComponent: FC = () => {
         p: 3,
       }}
     >
-      <IconButton onClick={handleOpenNewTaskModal}>
+      <IconButton onClick={modalsShowState?.handleOpenNewTaskModal}>
         <LibraryAdd />
       </IconButton>
 

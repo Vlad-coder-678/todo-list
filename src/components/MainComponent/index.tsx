@@ -17,10 +17,10 @@ import getTodayDate from "../../utilities/getTodayDate";
 import { TaskListType } from "../../types";
 
 const MainComponent: FC = () => {
-  const taskListContext = useContext(TaskListContext);
+  const taskListState = useContext(TaskListContext);
 
   const todayDate = getTodayDate();
-  const { [todayDate]: todayTaskList, ...restTaskLists } = taskListContext?.taskList as TaskListType;
+  const { [todayDate]: todayTaskList, ...restTaskLists } = taskListState?.taskList as TaskListType;
 
   return (
     <Box

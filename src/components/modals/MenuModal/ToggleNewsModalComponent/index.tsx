@@ -10,8 +10,8 @@ import TEXT from "../../../../constants/text";
 import { ModalsShowContext } from "../../../../providers/ModalsShowProvider";
 
 const ToggleNewsModalComponent: FC = () => {
-  const { isShowNewsModal, toggleShowNewsModal } = useContext(ModalsShowContext);
   const theme = useTheme();
+  const modalsShowState = useContext(ModalsShowContext);
 
   return (
     <Box
@@ -26,11 +26,11 @@ const ToggleNewsModalComponent: FC = () => {
         p: 3,
       }}
     >
-      <IconButton onClick={toggleShowNewsModal}>
-        {(isShowNewsModal as boolean) ? <SpeakerNotesOff /> : <SpeakerNotes />}
+      <IconButton onClick={modalsShowState?.toggleShowNewsModal}>
+        {(modalsShowState?.isShowNewsModal as boolean) ? <SpeakerNotesOff /> : <SpeakerNotes />}
       </IconButton>
 
-      {`${(isShowNewsModal as boolean) ? TEXT.close : TEXT.show} ${TEXT.news}`.toUpperCase()}
+      {`${(modalsShowState?.isShowNewsModal as boolean) ? TEXT.close : TEXT.show} ${TEXT.news}`.toUpperCase()}
     </Box>
   );
 };

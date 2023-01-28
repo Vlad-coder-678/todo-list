@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, MouseEvent, ReactNode, SetStateAction } from "react";
 import { CurrentTaskIdType, TaskListType } from ".";
 
 interface updateTaskListPropsType {
@@ -22,13 +22,31 @@ interface TaskListContextType {
   addNewTask: (props: addNewTaskPropsType) => void,
 }
 
-interface ThemeContextProviderType {
+interface ModalsShowContextType {
+  currentTaskId: CurrentTaskIdType,
+  setCurrentTaskId: Dispatch<SetStateAction<CurrentTaskIdType>>,
+  showMenuButtonAnchor: HTMLElement | null,
+  isShowMenuModal: boolean,
+  handleOpenMenu: (event: MouseEvent<HTMLElement>) => void,
+  handleCloseMenu: () => void,
+  isShowFullTaskDescriptionModal: boolean,
+  openFullTaskDescriptionModal: (props: CurrentTaskIdType) => void,
+  closeFullDescriptionModal: () => void,
+  isShowNewsModal: boolean,
+  toggleShowNewsModal: () => void,
+  isShowNewTaskModal: boolean,
+  handleOpenNewTaskModal: () => void,
+  handleCloseNewTaskModal: () => void,
+}
+
+interface DefaultPropsType {
   children: ReactNode,
 }
 
 export type {
   TaskListContextType,
-  ThemeContextProviderType,
+  DefaultPropsType,
   addNewTaskPropsType,
   updateTaskListPropsType,
+  ModalsShowContextType,
 };

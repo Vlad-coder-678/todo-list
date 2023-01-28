@@ -5,18 +5,18 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { PaletteMode } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 // local imports
 // types
-import { ThemeContextProviderType } from "../types/contexts";
+import { DefaultPropsType } from "../types/contexts";
 // utilities
 import getDesignTokens from "../utilities/getDesignToken";
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
-const ThemeContextProvider: FC<ThemeContextProviderType> = ({ children }) => {
+const ThemeContextProvider: FC<DefaultPropsType> = ({ children }) => {
   const [mode, setMode] = useState<PaletteMode>("dark");
 
   const colorMode = useMemo(() => ({
