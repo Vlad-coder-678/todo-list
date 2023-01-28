@@ -1,6 +1,6 @@
 // vendor imports
 import React, { FC, useContext } from "react";
-import { Box, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 
 // local imports
 // constants
@@ -12,8 +12,6 @@ import { TaskListContext } from "../../providers/TaskListContextProvider";
 import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 // components
 import StyledSwitch from "../shared/StyledSwitch";
-import TaskDescriptionComponent from "./TaskDescriptionComponent";
-import TaskTitleComponent from "./TaskTitleComponent";
 
 const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
   date,
@@ -66,12 +64,12 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
           cursor: "pointer",
         }}
       >
-        <TaskTitleComponent isDone={isDone}>
+        <Typography variant="h3" noWrap sx={{ textDecoration: isDone ? "line-through" : "none" }}>
           {title.length === 0 ? TEXT.emptyTitle : title}
-        </TaskTitleComponent>
-        <TaskDescriptionComponent>
+        </Typography>
+        <Typography variant="subtitle1" noWrap>
           {description}
-        </TaskDescriptionComponent>
+        </Typography>
       </Box>
 
       <StyledSwitch

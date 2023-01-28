@@ -2,10 +2,13 @@ import React, { FC, useContext, useState } from "react";
 import {
   Box,
   IconButton,
+  Typography,
 } from "@mui/material";
 import { DeleteForever, Edit } from "@mui/icons-material";
 
 // local imports
+// constants
+import TEXT from "../../../constants/text";
 // providers
 import { TaskListContext } from "../../../providers/TaskListContextProvider";
 import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
@@ -14,7 +17,7 @@ import { TaskListType } from "../../../types";
 // utilities
 import getTodayDate from "../../../utilities/getTodayDate";
 // components
-import StyledDialog from "../../shared/StyledDialog";
+import { StyledDialog, StyledDialogTitle } from "../../shared/StyledDialog";
 import EditTaskFormComponen from "./EditTaskFormComponent";
 
 const FullTaskDescriptionModal: FC = () => {
@@ -38,12 +41,19 @@ const FullTaskDescriptionModal: FC = () => {
       open={modalsShowState?.isShowFullTaskDescriptionModal ?? false}
       onClose={modalsShowState?.closeFullDescriptionModal}
     >
+      <StyledDialogTitle>
+        {TEXT.taskEditingTitleModal}
+      </StyledDialogTitle>
       {isShowForm
         ? (<EditTaskFormComponen onClose={handleCloseForm} />)
         : (
           <>
-            <h4>{currentTask?.title ?? ""}</h4>
-            <p>{currentTask?.description ?? ""}</p>
+            <StyledDialogTitle>
+              {currentTask?.title.length === 0 ? TEXT.emptyTitle : currentTask?.title}
+            </StyledDialogTitle>
+            <Typography>
+              {currentTask?.description ?? ""}
+            </Typography>
             <Box
               sx={{
                 display: "flex",

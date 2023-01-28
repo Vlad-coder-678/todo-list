@@ -1,6 +1,6 @@
 // vendor imports
 import React, { FC } from "react";
-import { Box, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { ExpandCircleDown } from "@mui/icons-material";
 
 // local imports
@@ -12,7 +12,6 @@ import { RestTaskListComponentPropTypes } from "../../types/components";
 import getPriorityColor from "../../utilities/getPriorityColor";
 // components
 import { StyledRestTaskListAccordion, StyledRestTaskListAccordionDetails, StyledRestTaskListAccordionSummary } from "../shared/StyledRestTaskListAccordion";
-import TaskListOfDayTitleComponent from "../TaskListOfDayTitleComponent";
 import TaskCardComponent from "../TaskCardComponent";
 
 const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskList, index }) => {
@@ -32,9 +31,9 @@ const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskL
           marginRight: "13px",
         }} />
 
-        <TaskListOfDayTitleComponent
-          title={`${(index === 0 ? TEXT.tomorrow : date.substring(0, 5))} ${TEXT.tasks}`}
-        />
+        <Typography noWrap variant="h2">
+          {`${(index === 0 ? TEXT.tomorrow : date.substring(0, 5))} ${TEXT.tasks}`}
+        </Typography>
       </StyledRestTaskListAccordionSummary>
       <StyledRestTaskListAccordionDetails>
         {taskList.map(({ title, description, isDone, priority, id }) => (

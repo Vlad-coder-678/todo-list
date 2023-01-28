@@ -16,6 +16,7 @@ const TEXT = {
   addNewTask: "add new task",
   emptyTodayTaskList: "Today nothing to do",
   emptyTitle: "Empty title",
+  taskEditingTitleModal: "TASK EDITING",
 };
 
 export default TEXT;

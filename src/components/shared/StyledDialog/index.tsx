@@ -1,6 +1,6 @@
 // vendor imports
 import React from "react";
-import { Dialog, DialogProps, styled } from "@mui/material";
+import { Dialog, DialogActions, DialogActionsProps, DialogContent, DialogContentProps, DialogProps, DialogTitle, DialogTitleProps, styled } from "@mui/material";
 
 const StyledDialog = styled((props: DialogProps) => (
   <Dialog {...props} />
@@ -17,4 +17,27 @@ const StyledDialog = styled((props: DialogProps) => (
   },
 }));
 
-export default StyledDialog;
+const StyledDialogTitle = styled((props: DialogTitleProps) => (
+  <DialogTitle noWrap {...props} />
+))(({ theme }) => ({
+  border: "2px solid red",
+}));
+
+const StyledDialogContent = styled((props: DialogContentProps) => (
+  <DialogContent {...props} />
+))(({ theme }) => ({
+  border: "2px solid red",
+}));
+
+const StyledDialogActions = styled((props: DialogActionsProps) => (
+  <DialogActions {...props} />
+))(({ theme }) => ({
+  border: "2px solid red",
+}));
+
+export {
+  StyledDialog,
+  StyledDialogTitle,
+  StyledDialogContent,
+  StyledDialogActions,
+};

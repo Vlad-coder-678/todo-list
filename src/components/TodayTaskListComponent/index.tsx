@@ -1,5 +1,6 @@
 // vendor imports
 import React, { FC, useState } from "react";
+import { Typography } from "@mui/material";
 
 // local imports
 // constants
@@ -10,13 +11,12 @@ import { TaskType } from "../../types";
 import getPriorityColor from "../../utilities/getPriorityColor";
 import getTodayDate from "../../utilities/getTodayDate";
 // components
-import StylesCheckbox from "../shared/StylesCheckbox";
 import {
   StyledTodayTaskListAccordion,
   StyledTodayTaskListAccordionSummary,
   StyledTodayTaskListAccordionDetails,
 } from "../shared/StyledTodayTaskListAccordion";
-import TaskListOfDayTitleComponent from "../TaskListOfDayTitleComponent";
+import StylesCheckbox from "../shared/StylesCheckbox";
 import TaskCardComponent from "../TaskCardComponent";
 
 const TodayTaskListComponent: FC<{ todayTaskList: TaskType[] }> = ({ todayTaskList }) => {
@@ -31,7 +31,9 @@ const TodayTaskListComponent: FC<{ todayTaskList: TaskType[] }> = ({ todayTaskLi
       <StyledTodayTaskListAccordionSummary>
         <StylesCheckbox checked={isShowTodayTasks} />
 
-        <TaskListOfDayTitleComponent title={TEXT.todayTasks} />
+        <Typography variant="h2" noWrap>
+          {TEXT.todayTasks}
+        </Typography>
       </StyledTodayTaskListAccordionSummary>
 
       <StyledTodayTaskListAccordionDetails>

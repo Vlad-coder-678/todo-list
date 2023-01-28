@@ -17,7 +17,7 @@ import { TaskListContext } from "../../../providers/TaskListContextProvider";
 // utilities
 import getTodayDate from "../../../utilities/getTodayDate";
 // components
-import StyledDialog from "../../shared/StyledDialog";
+import { StyledDialog } from "../../shared/StyledDialog";
 import StyledInput from "../../shared/StyledInput";
 
 const DEFAULT_FIELDS = { id: 0, title: "", description: "", priority: "low", isDone: false };

@@ -1,20 +1,19 @@
 // vendor imports
 import React, { FC, useContext } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 // locale imports
 // constants
 import TEXT from "../../constants/text";
+// types
+import { TaskListType } from "../../types";
 // poviders
 import { TaskListContext } from "../../providers/TaskListContextProvider";
+// utilities
+import getTodayDate from "../../utilities/getTodayDate";
 // components
 import TodayTaskListComponent from "../TodayTaskListComponent";
 import RestTaskListComponent from "../RestTaskListComponent";
-import TaskListOfDayTitleComponent from "../TaskListOfDayTitleComponent";
-// utilities
-import getTodayDate from "../../utilities/getTodayDate";
-// types
-import { TaskListType } from "../../types";
 
 const MainComponent: FC = () => {
   const taskListState = useContext(TaskListContext);
@@ -35,7 +34,7 @@ const MainComponent: FC = () => {
     >
       {todayTaskList.length > 0
         ? (<TodayTaskListComponent todayTaskList={todayTaskList} />)
-        : (<TaskListOfDayTitleComponent title={TEXT.emptyTodayTaskList}/>)}
+        : (<Typography noWrap variant="h2">{TEXT.emptyTodayTaskList}</Typography>)}
 
       {Object.entries(restTaskLists)?.map(([date, taskList], index) => (
         <RestTaskListComponent

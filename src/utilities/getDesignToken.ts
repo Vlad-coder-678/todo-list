@@ -50,9 +50,27 @@ const getDesignTokens = (mode: PaletteMode) => ({
       fontSize: "36px",
       lineHeight: 1.12,
       fontWeight: 700,
+      paddingLeft: "11px",
     },
     h2: {
-      fontSize: "36px",
+      fontSize: "24px",
+      lineHeight: "24px",
+      fontWeight: "700",
+      letterSpacing: "-0.7px",
+    },
+    h3: {
+      fontSize: "20px",
+      lineHeight: "20px",
+      fontWeight: "700",
+      letterSpacing: "1.7px",
+    },
+    subtitle1: {
+      fontSize: "13px",
+      lineHeight: "15px",
+      fontWeight: "700",
+      letterSpacing: "0",
+      maxWidth: "169px",
+      color: mode === "light" ? "#777" : "#a9a9a9",
     },
   },
 });

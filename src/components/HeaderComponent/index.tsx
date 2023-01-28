@@ -3,16 +3,16 @@ import React, { FC, useContext } from "react";
 import {
   IconButton,
   Toolbar,
-  Typography,
   AppBar,
   useTheme,
+  Typography,
 } from "@mui/material";
 import { Settings } from "@mui/icons-material";
 
 // locale imports
 // constants
 import TEXT from "../../constants/text";
-// types
+// providers
 import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 
 const HeaderComponent: FC = () => {
@@ -39,17 +39,7 @@ const HeaderComponent: FC = () => {
           paddingRight: "28px",
         }}
       >
-        <Typography
-          component="h1"
-          noWrap
-          sx={{
-            fontSize: "36px",
-            lineHeight: "36px",
-            fontWeight: "700",
-            letterSpacing: "0",
-            paddingLeft: "11px",
-          }}
-        >
+        <Typography variant="h1" noWrap>
           {TEXT.mainTitle}
         </Typography>
 
@@ -60,9 +50,7 @@ const HeaderComponent: FC = () => {
           onClick={modalsShowState?.handleOpenMenu}
           sx={{ paddingRight: "14px" }}
         >
-          <Settings
-            sx={{ fontSize: "36px" }}
-          />
+          <Settings sx={{ fontSize: "36px" }} />
         </IconButton>
       </Toolbar>
     </AppBar>
