@@ -1,6 +1,6 @@
 const API = {
   mediaStack: {
-    protocol: "http",
+    protocol: "https",
     host: "api.mediastack.com",
     path: "/v1/news",
     options: [{
