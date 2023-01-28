@@ -1,6 +1,6 @@
 // vendor imports
 import React, { FC, useContext } from "react";
-import { Box, FormControl, IconButton, MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import { Box, Divider, FormControl, IconButton, MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import { Save } from "@mui/icons-material";
 
 // local imports
@@ -81,6 +81,9 @@ const EditTaskFormComponen: FC<EditTaskFormComponenProps> = ({ onClose }) => {
           <MenuItem value={TEXT.low.toLowerCase()}>{TEXT.low}</MenuItem>
         </Select>
       </Box>
+
+      <Divider sx={{ padding: "10px 0" }} />
+
       <IconButton onClick={handleCloseModal}>
         <Save color="success" />
       </IconButton>

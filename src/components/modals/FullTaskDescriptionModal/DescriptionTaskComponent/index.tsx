@@ -1,6 +1,7 @@
 import React, { FC, useContext } from "react";
 import {
   Box,
+  Divider,
   IconButton,
   Typography,
 } from "@mui/material";
@@ -33,8 +34,12 @@ const TaskDescriptionComponent: FC<TaskDescriptionComponentProps> = ({ handleOpe
       <Typography>
         {currentTask?.description ?? ""}
       </Typography>
+
+      <Divider sx={{ padding: "10px 0" }} />
+
       <Box
         sx={{
+          width: "300px",
           display: "flex",
           justifyContent: "space-around",
           margin: "10px",

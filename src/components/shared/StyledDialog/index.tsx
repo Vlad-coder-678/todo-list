@@ -12,6 +12,7 @@ const StyledDialog = styled((props: DialogProps) => (
     maxWidth: "350px",
     borderRadius: "30px",
     textAlign: "center",
+    boxShadow: "-8px -8px 20px 0px rgba(255, 255, 255, 0.15)",
   },
 }));
 
@@ -23,12 +24,12 @@ const StyledDialogTitle = styled((props: DialogTitleProps) => (
 }));
 
 const StyledDialogContent = styled((props: DialogContentProps) => (
-  <DialogContent {...props} />
+  <DialogContent {...props} dividers />
 ))(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   color: theme.palette.text.primary,
   boxSizing: "border-box",
-  padding: "0",
+  padding: "20px 0",
 }));
 
 const StyledDialogActions = styled((props: DialogActionsProps) => (

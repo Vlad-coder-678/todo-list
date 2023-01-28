@@ -1,6 +1,6 @@
 // vendor imports
 import React, { useContext, useState } from "react";
-import { Box, FormControl, IconButton, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
+import { Box, Divider, FormControl, IconButton, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
 import { Save } from "@mui/icons-material";
 import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -55,6 +55,7 @@ const AddNewTaskModal = () => {
       <StyledDialogTitle>
         {TEXT.createTaskTitleModal}
       </StyledDialogTitle>
+
       <StyledDialogContent>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <FormControl
@@ -107,6 +108,9 @@ const AddNewTaskModal = () => {
                 <MenuItem value={TEXT.low.toLowerCase()}>{TEXT.low}</MenuItem>
               </Select>
             </Box>
+
+            <Divider sx={{ padding: "10px 0" }} />
+
             <IconButton onClick={submitForm}>
               <Save color="success" />
             </IconButton>
