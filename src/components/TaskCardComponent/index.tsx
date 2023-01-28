@@ -3,6 +3,8 @@ import React, { FC, useContext } from "react";
 import { Box, useTheme } from "@mui/material";
 
 // local imports
+// constants
+import TEXT from "../../constants/text";
 // types
 import { TaskCardComponentPropsType } from "../../types/types";
 // providers
@@ -12,7 +14,6 @@ import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 import StyledSwitch from "../shared/StyledSwitch";
 import TaskDescriptionComponent from "../TaskDescriptionComponent";
 import TaskTitleComponent from "../TaskTitleComponent";
-import TEXT from "../../constants/text";
 
 const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
   date,
@@ -25,6 +26,8 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
   const theme = useTheme();
   const taskListContext = useContext(TaskListContext);
   const { openFullTaskDescriptionModal } = useContext(ModalsShowContext);
+
+  const handleOpenFullTaskDescriptionModal = () => openFullTaskDescriptionModal({ date, id });
 
   const handleChangeTaskStatus = () => {
     taskListContext?.updateTaskList({
@@ -54,7 +57,7 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
       />
 
       <Box
-        onClick={() => openFullTaskDescriptionModal({ date, id })}
+        onClick={handleOpenFullTaskDescriptionModal}
         sx={{
           width: "230px",
           display: "flex",
@@ -64,7 +67,7 @@ const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
         }}
       >
         <TaskTitleComponent isDone={isDone}>
-          {title ?? TEXT.emptyTitle}
+          {title.length === 0 ? TEXT.emptyTitle : title}
         </TaskTitleComponent>
         <TaskDescriptionComponent>
           {description}
