@@ -44,7 +44,13 @@ const RestTaskListComponent: FC<RestTaskListComponentProps> = ({ date, taskList,
             title={title}
             description={description}
             isDone={isDone}
-            priorityColor={getPriorityColor(priority)}
+            priorityColor={getPriorityColor({
+              priority,
+              highPriorityColor: theme.palette.error.main,
+              normalPriorityColor: theme.palette.info.main,
+              lowPriorityColor: theme.palette.warning.main,
+              defaultPriorityColor: theme.palette.success.main,
+            })}
           />
         ))}
       </StyledRestTaskListAccordionDetails>

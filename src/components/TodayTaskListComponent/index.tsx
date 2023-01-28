@@ -1,6 +1,6 @@
 // vendor imports
 import React, { FC, useState } from "react";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 
 // local imports
 // constants
@@ -21,6 +21,8 @@ import TaskCardComponent from "../TaskCardComponent";
 
 const TodayTaskListComponent: FC<{ todayTaskList: TaskType[] }> = ({ todayTaskList }) => {
   const [isShowTodayTasks, setIsShowTodayTasks] = useState(true);
+  const theme = useTheme();
+
   const todayDate = getTodayDate();
 
   return (
@@ -45,7 +47,13 @@ const TodayTaskListComponent: FC<{ todayTaskList: TaskType[] }> = ({ todayTaskLi
             title={title}
             description={description}
             isDone={isDone}
-            priorityColor={getPriorityColor(priority)}
+            priorityColor={getPriorityColor({
+              priority,
+              highPriorityColor: theme.palette.error.main,
+              normalPriorityColor: theme.palette.info.main,
+              lowPriorityColor: theme.palette.warning.main,
+              defaultPriorityColor: theme.palette.success.main,
+            })}
           />
         ))}
       </StyledTodayTaskListAccordionDetails>

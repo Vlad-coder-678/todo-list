@@ -31,10 +31,19 @@ interface cutStringProps {
   suffix?: string,
 }
 
+interface getPriorityColorProps {
+  priority?: string,
+  highPriorityColor: string,
+  normalPriorityColor: string,
+  lowPriorityColor: string,
+  defaultPriorityColor: string,
+}
+
 export type {
   TaskType,
   TaskListType,
   CurrentTaskIdType,
   getUrlProps,
   cutStringProps,
+  getPriorityColorProps,
 };

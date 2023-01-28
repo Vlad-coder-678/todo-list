@@ -1,21 +1,31 @@
-import { useTheme } from "@mui/material";
+import { getPriorityColorProps } from "../types";
 
 /**
  * @function getPriorityColor
- * @param {string} priority - приоритет таски
  *
  * @description возвращает цвет приоритета
  *
+ * @param {object} props
+ * @param {string} props.priority - приоритет таски
+ * @param {string} props.highPriorityColor - цвет высокого приоритета таски
+ * @param {string} props.normalPriorityColor - цвет обычного приоритета таски
+ * @param {string} props.lowPriorityColor - цвет низкого приоритета таски
+ * @param {string} props.defaultPriorityColor - цвет приоритета таски по умолчанию
+ *
  * @returns {string}
  */
-const getPriorityColor = (priority?: string) => {
-  const theme = useTheme();
-
+const getPriorityColor = ({
+  priority,
+  highPriorityColor,
+  normalPriorityColor,
+  lowPriorityColor,
+  defaultPriorityColor,
+}: getPriorityColorProps): string => {
   switch (priority) {
-    case "high": return theme.palette.error.main.toString();
-    case "normal": return theme.palette.info.main.toString();
-    case "low": return theme.palette.warning.main.toString();
-    default: return theme.palette.success.main.toString();
+    case "high": return highPriorityColor; // theme.palette.error.main
+    case "normal": return normalPriorityColor; // theme.palette.info.main
+    case "low": return lowPriorityColor; // theme.palette.warning.main
+    default: return defaultPriorityColor; // theme.palette.success.main
   }
 };
 
