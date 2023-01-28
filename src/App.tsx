@@ -3,13 +3,13 @@ import React, { FC } from "react";
 
 // locale imports
 // components
-import StyledContainer from "./components/shared/StyledContainer";
-import FullTaskDescriptionModal from "./components/FullTaskDescriptionModal";
+import AddNewTaskModal from "./components/modals/AddNewTaskModal";
+import FullTaskDescriptionModal from "./components/modals/FullTaskDescriptionModal";
 import HeaderComponent from "./components/HeaderComponent";
 import MainComponent from "./components/MainComponent";
 import MenuModal from "./components/modals/MenuModal";
 import NewsModal from "./components/modals/NewsModal";
-import AddNewTaskModal from "./components/modals/AddNewTaskModal";
+import StyledContainer from "./components/shared/StyledContainer";
 
 const App: FC = () => {
   return (
