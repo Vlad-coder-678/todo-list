@@ -9,9 +9,8 @@ import cutString from "../utilities/cutString";
 import getUrl from "../utilities/getUrl";
 
 const useNews = () => {
-  // для локального тестирования берём news_api там количество запросов в сутки большое, но оно не работает в проде
-  // для прода переключаем на mediaStack. Api работает в проде, но ограничена по количеству запросов в месяц.
-  const isNewsApi = false;
+  // работает только локально news_api или mediaStack api
+  const isNewsApi = true;
 
   return useQuery("news data", async () => {
     const url = isNewsApi
