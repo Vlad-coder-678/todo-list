@@ -3,14 +3,14 @@ import React, { FC, useContext } from "react";
 
 // local import
 // providers
-import { ModalsShowContext } from "../../providers/ModalsShowProvider";
+import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
 // components
-import StyledMenu from "../shared/StyledMenu";
+import StyledMenu from "../../shared/StyledMenu";
 import ToggleThemeModeComponent from "./ToggleThemeModeComponent";
 import ToggleNewsModalComponent from "./ToggleNewsModalComponent";
 import ToggleNewTaskModalComponent from "./ToggleNewTaskModalComponent";
 
-const SettingsComponent: FC = () => {
+const MenuModal: FC = () => {
   const { isShowMenuModal, handleCloseMenu, showMenuButtonAnchor } = useContext(ModalsShowContext);
 
   return (
@@ -26,4 +26,4 @@ const SettingsComponent: FC = () => {
   );
 };
 
-export default SettingsComponent;
+export default MenuModal;

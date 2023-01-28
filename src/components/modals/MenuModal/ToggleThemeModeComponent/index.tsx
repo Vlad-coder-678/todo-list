@@ -8,7 +8,7 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 // local imports
 // providers
-import { ColorModeContext } from "../../../providers/ThemeContextProvider";
+import { ColorModeContext } from "../../../../providers/ThemeContextProvider";
 
 function ToggleThemeModeComponent () {
   const theme = useTheme();

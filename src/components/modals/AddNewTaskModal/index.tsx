@@ -8,17 +8,17 @@ import dayjs from "dayjs";
 
 // local imports
 // constants
-import TEXT from "../../constants/text";
+import TEXT from "../../../constants/text";
 // types
-import { TaskType } from "../../types/types";
+import { TaskType } from "../../../types/types";
 // provider
-import { ModalsShowContext } from "../../providers/ModalsShowProvider";
-import { TaskListContext } from "../../providers/TaskListContextProvider";
+import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
+import { TaskListContext } from "../../../providers/TaskListContextProvider";
 // utilities
-import getTodayDate from "../../utilities/getTodayDate";
+import getTodayDate from "../../../utilities/getTodayDate";
 // components
-import StyledDialog from "../shared/StyledDialog";
-import StyledInput from "../shared/StyledInput";
+import StyledDialog from "../../shared/StyledDialog";
+import StyledInput from "../../shared/StyledInput";
 
 const DEFAULT_FIELDS = { id: 0, title: "", description: "", priority: "low", isDone: false };
 

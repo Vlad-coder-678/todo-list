@@ -5,9 +5,9 @@ import { LibraryAdd } from "@mui/icons-material";
 
 // local imports
 // constants
-import TEXT from "../../../constants/text";
+import TEXT from "../../../../constants/text";
 // providers
-import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
+import { ModalsShowContext } from "../../../../providers/ModalsShowProvider";
 
 const ToggleNewTaskModalComponent: FC = () => {
   const { handleOpenNewTaskModal } = useContext(ModalsShowContext);

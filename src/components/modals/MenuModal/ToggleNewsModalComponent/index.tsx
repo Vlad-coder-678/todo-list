@@ -5,9 +5,9 @@ import { SpeakerNotes, SpeakerNotesOff } from "@mui/icons-material";
 
 // local imports
 // constants
-import TEXT from "../../../constants/text";
+import TEXT from "../../../../constants/text";
 // providers
-import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
+import { ModalsShowContext } from "../../../../providers/ModalsShowProvider";
 
 const ToggleNewsModalComponent: FC = () => {
   const { isShowNewsModal, toggleShowNewsModal } = useContext(ModalsShowContext);

@@ -6,9 +6,9 @@ import { Box, useTheme } from "@mui/material";
 
 // local imports
 // constnats
-import TEXT from "../../constants/text";
+import TEXT from "../../../constants/text";
 // providers
-import { ModalsShowContext } from "../../providers/ModalsShowProvider";
+import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
 
 const NewsModal: FC = () => {
   const theme = useTheme();
