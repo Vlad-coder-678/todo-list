@@ -35,10 +35,11 @@ const FullTaskDescriptionModal: FC = () => {
       <StyledDialogTitle>
         {TEXT.taskEditingTitleModal}
       </StyledDialogTitle>
+
       <StyledDialogContent>
-      {isShowForm
-        ? (<EditTaskFormComponen onClose={handleCloseForm} />)
-        : (<TaskDescriptionComponent handleOpenForm={handleOpenForm} handleRemoveTask={handleRemoveTask} />)
+        {isShowForm
+          ? (<EditTaskFormComponen onClose={handleCloseForm} />)
+          : (<TaskDescriptionComponent handleOpenForm={handleOpenForm} handleRemoveTask={handleRemoveTask} />)
         }
       </StyledDialogContent>
     </StyledDialog>

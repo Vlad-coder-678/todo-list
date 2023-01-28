@@ -27,6 +27,8 @@ const StyledDialogContent = styled((props: DialogContentProps) => (
 ))(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   color: theme.palette.text.primary,
+  boxSizing: "border-box",
+  padding: "0",
 }));
 
 const StyledDialogActions = styled((props: DialogActionsProps) => (

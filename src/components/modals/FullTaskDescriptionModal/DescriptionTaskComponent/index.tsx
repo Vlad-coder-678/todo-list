@@ -14,11 +14,11 @@ import { TaskListContext } from "../../../../providers/TaskListContextProvider";
 import { ModalsShowContext } from "../../../../providers/ModalsShowProvider";
 // types
 import { TaskListType } from "../../../../types";
+import { TaskDescriptionComponentProps } from "../../../../types/components";
 // utilities
 import getTodayDate from "../../../../utilities/getTodayDate";
-// components
 
-const TaskDescriptionComponent: FC<{ handleOpenForm: () => void; handleRemoveTask: () => void }> = ({ handleOpenForm, handleRemoveTask }) => {
+const TaskDescriptionComponent: FC<TaskDescriptionComponentProps> = ({ handleOpenForm, handleRemoveTask }) => {
   const taskListState = useContext(TaskListContext);
   const modalsShowState = useContext(ModalsShowContext);
 
