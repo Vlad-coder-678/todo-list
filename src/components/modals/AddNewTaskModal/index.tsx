@@ -17,7 +17,7 @@ import { TaskListContext } from "../../../providers/TaskListContextProvider";
 // utilities
 import getTodayDate from "../../../utilities/getTodayDate";
 // components
-import { StyledDialog } from "../../shared/StyledDialog";
+import { StyledDialog, StyledDialogContent, StyledDialogTitle } from "../../shared/StyledDialog";
 import StyledInput from "../../shared/StyledInput";
 
 const DEFAULT_FIELDS = { id: 0, title: "", description: "", priority: "low", isDone: false };
@@ -52,62 +52,67 @@ const AddNewTaskModal = () => {
       open={modalsShowState?.isShowNewTaskModal ?? false}
       onClose={modalsShowState?.handleCloseNewTaskModal}
     >
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <FormControl
-          variant="standard"
-          color="primary"
-          fullWidth
-          sx={{
-            width: "350px",
-            boxSizing: "border-box",
-            padding: "20px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "15px",
-          }}
-        >
-          <MobileDatePicker
-            label="Date"
-            inputFormat="MM/DD/YYYY"
-            value={date}
-            onChange={handleChangeDate}
-            renderInput={(params) => <TextField {...params} />}
-          />
-          <StyledInput
-            value={fields?.title ?? ""}
-            name="title"
-            label="TITLE"
-            onChange={handleChangeFields}
-          />
-          <StyledInput
-            value={fields?.description ?? ""}
-            name="description"
-            label="DESCRIPTION"
-            onChange={handleChangeFields}
-          />
-          <Box
+      <StyledDialogTitle>
+        {TEXT.createTaskTitleModal}
+      </StyledDialogTitle>
+      <StyledDialogContent>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <FormControl
+            variant="standard"
+            color="primary"
+            fullWidth
             sx={{
+              width: "350px",
+              boxSizing: "border-box",
+              padding: "20px",
               display: "flex",
-              justifyContent: "space-between",
+              flexDirection: "column",
+              gap: "15px",
             }}
           >
-            <span>{TEXT.priority}</span>
-            <Select
-              value={fields?.priority ?? ""}
-              label="PRIORITY"
-              name={TEXT.priority.toLowerCase()}
+            <MobileDatePicker
+              label="Date"
+              inputFormat="MM/DD/YYYY"
+              value={date}
+              onChange={handleChangeDate}
+              renderInput={(params) => <TextField {...params} />}
+            />
+            <StyledInput
+              value={fields?.title ?? ""}
+              name="title"
+              label="TITLE"
               onChange={handleChangeFields}
+            />
+            <StyledInput
+              value={fields?.description ?? ""}
+              name="description"
+              label="DESCRIPTION"
+              onChange={handleChangeFields}
+            />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+              }}
             >
-              <MenuItem value={TEXT.high.toLowerCase()}>{TEXT.high}</MenuItem>
-              <MenuItem value={TEXT.normal.toLowerCase()}>{TEXT.normal}</MenuItem>
-              <MenuItem value={TEXT.low.toLowerCase()}>{TEXT.low}</MenuItem>
-            </Select>
-          </Box>
-          <IconButton onClick={submitForm}>
-            <Save color="success" />
-          </IconButton>
-        </FormControl>
-      </LocalizationProvider>
+              <span>{TEXT.priority}</span>
+              <Select
+                value={fields?.priority ?? ""}
+                label="PRIORITY"
+                name={TEXT.priority.toLowerCase()}
+                onChange={handleChangeFields}
+              >
+                <MenuItem value={TEXT.high.toLowerCase()}>{TEXT.high}</MenuItem>
+                <MenuItem value={TEXT.normal.toLowerCase()}>{TEXT.normal}</MenuItem>
+                <MenuItem value={TEXT.low.toLowerCase()}>{TEXT.low}</MenuItem>
+              </Select>
+            </Box>
+            <IconButton onClick={submitForm}>
+              <Save color="success" />
+            </IconButton>
+          </FormControl>
+        </LocalizationProvider>
+      </StyledDialogContent>
     </StyledDialog>
   );
 };
