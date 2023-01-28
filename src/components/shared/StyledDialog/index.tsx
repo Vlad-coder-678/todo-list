@@ -20,7 +20,6 @@ const StyledDialog = styled((props: DialogProps) => (
 const StyledDialogTitle = styled((props: DialogTitleProps) => (
   <DialogTitle noWrap {...props} />
 ))(({ theme }) => ({
-  border: "2px solid red",
 }));
 
 const StyledDialogContent = styled((props: DialogContentProps) => (
