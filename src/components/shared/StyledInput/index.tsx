@@ -4,9 +4,9 @@ import { TextField } from "@mui/material";
 
 // local imports
 // types
-import { StyledInputPropsType } from "../../../types/components";
+import { StyledInputProps } from "../../../types/components";
 
-const StyledInput: FC<StyledInputPropsType> = ({
+const StyledInput: FC<StyledInputProps> = ({
   value,
   onChange,
   label,

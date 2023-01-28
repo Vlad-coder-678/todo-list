@@ -1,10 +1,4 @@
 import React, { FC, useContext, useState } from "react";
-import {
-  Box,
-  IconButton,
-  Typography,
-} from "@mui/material";
-import { DeleteForever, Edit } from "@mui/icons-material";
 
 // local imports
 // constants
@@ -12,21 +6,15 @@ import TEXT from "../../../constants/text";
 // providers
 import { TaskListContext } from "../../../providers/TaskListContextProvider";
 import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
-// types
-import { TaskListType } from "../../../types";
-// utilities
-import getTodayDate from "../../../utilities/getTodayDate";
 // components
-import { StyledDialog, StyledDialogTitle } from "../../shared/StyledDialog";
+import { StyledDialog, StyledDialogContent, StyledDialogTitle } from "../../shared/StyledDialog";
 import EditTaskFormComponen from "./EditTaskFormComponent";
+import TaskDescriptionComponent from "./DescriptionTaskComponent";
 
 const FullTaskDescriptionModal: FC = () => {
   const [isShowForm, setIsShowForm] = useState(false);
   const taskListState = useContext(TaskListContext);
   const modalsShowState = useContext(ModalsShowContext);
-
-  const { [modalsShowState?.currentTaskId.date ?? getTodayDate()]: currentTaskList } = taskListState?.taskList as TaskListType;
-  const currentTask = currentTaskList.filter(({ id }: { id: number }) => (id === modalsShowState?.currentTaskId.id))[0];
 
   const handleRemoveTask = () => {
     modalsShowState?.closeFullDescriptionModal();
@@ -34,43 +22,25 @@ const FullTaskDescriptionModal: FC = () => {
   };
 
   const handleOpenForm = () => setIsShowForm(true);
-  const handleCloseForm = () => setIsShowForm(false);
+  const handleCloseForm = () => {
+    setIsShowForm(false);
+    modalsShowState?.closeFullDescriptionModal();
+  };
 
   return (
     <StyledDialog
       open={modalsShowState?.isShowFullTaskDescriptionModal ?? false}
-      onClose={modalsShowState?.closeFullDescriptionModal}
+      onClose={handleCloseForm}
     >
       <StyledDialogTitle>
         {TEXT.taskEditingTitleModal}
       </StyledDialogTitle>
+      <StyledDialogContent>
       {isShowForm
         ? (<EditTaskFormComponen onClose={handleCloseForm} />)
-        : (
-          <>
-            <StyledDialogTitle>
-              {currentTask?.title.length === 0 ? TEXT.emptyTitle : currentTask?.title}
-            </StyledDialogTitle>
-            <Typography>
-              {currentTask?.description ?? ""}
-            </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-around",
-                margin: "10px",
-              }}
-            >
-              <IconButton onClick={handleOpenForm}>
-                <Edit color="warning" />
-              </IconButton>
-              <IconButton onClick={handleRemoveTask}>
-                <DeleteForever color="error" />
-              </IconButton>
-            </Box>
-          </>
-          )
+        : (<TaskDescriptionComponent handleOpenForm={handleOpenForm} handleRemoveTask={handleRemoveTask} />)
         }
+      </StyledDialogContent>
     </StyledDialog>
   );
 };

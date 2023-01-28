@@ -8,7 +8,7 @@ import { Save } from "@mui/icons-material";
 import TEXT from "../../../../constants/text";
 // types
 import { TaskListType } from "../../../../types";
-import { EditTaskFormComponenPropsType } from "../../../../types/components";
+import { EditTaskFormComponenProps } from "../../../../types/components";
 // providers
 import { TaskListContext } from "../../../../providers/TaskListContextProvider";
 // components
@@ -16,9 +16,10 @@ import StyledInput from "../../../shared/StyledInput";
 import { ModalsShowContext } from "../../../../providers/ModalsShowProvider";
 import getTodayDate from "../../../../utilities/getTodayDate";
 
-const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ onClose }) => {
+const EditTaskFormComponen: FC<EditTaskFormComponenProps> = ({ onClose }) => {
   const taskListState = useContext(TaskListContext);
   const modalsShowState = useContext(ModalsShowContext);
+
   const currentTaskDate = modalsShowState?.currentTaskId.date ?? getTodayDate();
   const { [currentTaskDate]: currentTaskList } = taskListState?.taskList as TaskListType;
   const currentTask = currentTaskList.filter(({ id }: { id: number }) => (id === modalsShowState?.currentTaskId.id))[0];
@@ -34,10 +35,7 @@ const EditTaskFormComponen: FC<EditTaskFormComponenPropsType> = ({ onClose }) =>
     });
   };
 
-  const handleCloseModal = () => {
-    modalsShowState?.closeFullDescriptionModal();
-    onClose();
-  };
+  const handleCloseModal = () => onClose();
 
   return (
     <FormControl

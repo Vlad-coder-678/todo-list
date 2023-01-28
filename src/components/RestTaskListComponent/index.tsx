@@ -7,14 +7,14 @@ import { ExpandCircleDown } from "@mui/icons-material";
 // constants
 import TEXT from "../../constants/text";
 // types
-import { RestTaskListComponentPropTypes } from "../../types/components";
+import { RestTaskListComponentProps } from "../../types/components";
 // utilities
 import getPriorityColor from "../../utilities/getPriorityColor";
 // components
 import { StyledRestTaskListAccordion, StyledRestTaskListAccordionDetails, StyledRestTaskListAccordionSummary } from "../shared/StyledRestTaskListAccordion";
 import TaskCardComponent from "../TaskCardComponent";
 
-const RestTaskListComponent: FC<RestTaskListComponentPropTypes> = ({ date, taskList, index }) => {
+const RestTaskListComponent: FC<RestTaskListComponentProps> = ({ date, taskList, index }) => {
   const theme = useTheme();
 
   if (taskList.length === 0) return null;

@@ -12,26 +12,28 @@ const StyledDialog = styled((props: DialogProps) => (
     maxWidth: "350px",
     borderRadius: "30px",
     textAlign: "center",
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary,
   },
 }));
 
 const StyledDialogTitle = styled((props: DialogTitleProps) => (
   <DialogTitle noWrap {...props} />
 ))(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+  color: theme.palette.text.primary,
 }));
 
 const StyledDialogContent = styled((props: DialogContentProps) => (
   <DialogContent {...props} />
 ))(({ theme }) => ({
-  border: "2px solid red",
+  backgroundColor: theme.palette.background.paper,
+  color: theme.palette.text.primary,
 }));
 
 const StyledDialogActions = styled((props: DialogActionsProps) => (
   <DialogActions {...props} />
 ))(({ theme }) => ({
-  border: "2px solid red",
+  backgroundColor: theme.palette.background.paper,
+  color: theme.palette.text.primary,
 }));
 
 export {

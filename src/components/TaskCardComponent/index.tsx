@@ -6,14 +6,14 @@ import { Box, Typography, useTheme } from "@mui/material";
 // constants
 import TEXT from "../../constants/text";
 // types
-import { TaskCardComponentPropsType } from "../../types/components";
+import { TaskCardComponentProps } from "../../types/components";
 // providers
 import { TaskListContext } from "../../providers/TaskListContextProvider";
 import { ModalsShowContext } from "../../providers/ModalsShowProvider";
 // components
 import StyledSwitch from "../shared/StyledSwitch";
 
-const TaskCardComponent: FC<TaskCardComponentPropsType> = ({
+const TaskCardComponent: FC<TaskCardComponentProps> = ({
   date,
   id,
   title,

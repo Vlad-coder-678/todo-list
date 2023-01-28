@@ -1,17 +1,17 @@
 import { ChangeEventHandler, Dispatch, ReactNode, SetStateAction } from "react";
 import { TaskType } from ".";
 
-interface RestTaskListComponentPropTypes {
+interface RestTaskListComponentProps {
   date: string,
   taskList: TaskType[],
   index: number,
 }
 
-interface EditTaskFormComponenPropsType {
+interface EditTaskFormComponenProps {
   onClose: () => void,
 }
 
-interface SnackComponentType {
+interface SnackComponentProps {
   autoHideDuration: number,
   isShow: boolean,
   snackText: string,
@@ -21,14 +21,14 @@ interface SnackComponentType {
   snackSeverity?: "success" | "info" | "warning" | "error",
 }
 
-interface StyledInputPropsType {
+interface StyledInputProps {
   value: string,
   onChange: ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>,
   label: string,
   name: string,
 }
 
-interface TaskCardComponentPropsType {
+interface TaskCardComponentProps {
   date: string,
   id: number,
   title: string,
@@ -37,10 +37,16 @@ interface TaskCardComponentPropsType {
   priorityColor: string,
 }
 
+interface TaskDescriptionComponentProps {
+  handleOpenForm: () => void,
+  handleRemoveTask: () => void,
+}
+
 export type {
-  StyledInputPropsType,
-  RestTaskListComponentPropTypes,
-  EditTaskFormComponenPropsType,
-  SnackComponentType,
-  TaskCardComponentPropsType,
+  StyledInputProps,
+  RestTaskListComponentProps,
+  EditTaskFormComponenProps,
+  SnackComponentProps,
+  TaskCardComponentProps,
+  TaskDescriptionComponentProps,
 };
