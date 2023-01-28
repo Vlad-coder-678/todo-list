@@ -15,8 +15,26 @@ interface CurrentTaskIdType {
   date: string,
 }
 
+interface getUrlProps {
+  protocol: string,
+  host: string,
+  path: string,
+  options: Array<{
+    key: string,
+    value: string,
+  }>,
+};
+
+interface cutStringProps {
+  string: string,
+  length: number,
+  suffix?: string,
+}
+
 export type {
   TaskType,
   TaskListType,
   CurrentTaskIdType,
+  getUrlProps,
+  cutStringProps,
 };

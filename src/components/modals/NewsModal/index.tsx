@@ -1,6 +1,5 @@
 // vendor imports
 import React, { FC, useContext } from "react";
-import { useQuery } from "react-query";
 import Marquee from "react-fast-marquee";
 import { Box, useTheme } from "@mui/material";
 
@@ -9,26 +8,28 @@ import { Box, useTheme } from "@mui/material";
 import TEXT from "../../../constants/text";
 // providers
 import { ModalsShowContext } from "../../../providers/ModalsShowProvider";
+// hooks
+import useNews from "../../../hooks/useNews";
 
 const NewsModal: FC = () => {
   const theme = useTheme();
   const modalsShowState = useContext(ModalsShowContext);
-
-  const FULL_URL_NEWS_API = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=06ce86ba632e44f5a547738589d46c75";
-
-  const { data, isLoading, isError, error } = useQuery("news data", async () => {
-    const response = await fetch(FULL_URL_NEWS_API);
-    const results = await response.json();
-
-    return results;
-  });
+  const { data, isLoading, isError, error } = useNews();
 
   if (!(modalsShowState?.isShowNewsModal as boolean)) return null;
 
+  const getText = () => {
+    switch (true) {
+      case isError: return `${TEXT.errorMessage}${(error as { message: string }).message}`;
+      case isLoading: return TEXT.newsIsLoading;
+      default: return (data !== undefined && data?.length > 0) ? data : TEXT.noResults;
+    }
+  };
+
   const getMarqueeBGColor = () => {
     switch (true) {
-      case (isLoading): return theme.palette.warning.main;
-      case (isError): return theme.palette.error.main;
+      case isLoading: return theme.palette.warning.main;
+      case isError: return theme.palette.error.main;
       default: return theme.palette.info.main;
     }
   };
@@ -36,24 +37,19 @@ const NewsModal: FC = () => {
   return (
     <Box
       sx={{
-        position: "absolute",
-        bottom: "60px",
-        height: "77px",
         width: "390px",
+        position: "absolute",
+        bottom: "50px",
         backgroundColor: getMarqueeBGColor(),
-        color: isLoading ? theme.palette.common.black : theme.palette.text.primary,
+        color: isLoading ? theme.palette.common.black : theme.palette.common.white,
         fontSize: "24px",
+        lineHeight: "40px",
         borderTop: `5px solid ${theme.palette.success.main}`,
         borderBottom: `5px solid ${theme.palette.success.main}`,
       }}
     >
-      <Marquee
-        gradient={false}
-        speed={20}
-      >
-        {isError && <p>{TEXT.errorMessage}{(error as any).message}</p>}
-        {isLoading && <p>{TEXT.newsIsLoading}</p>}
-        {data?.articles?.length > 0 ? (<p>{data.articles[0].description}</p>) : (!isLoading && <p>{TEXT.noResults}</p>)}
+      <Marquee gradient={false} speed={20}>
+        {getText()}
       </Marquee>
     </Box>
   );
