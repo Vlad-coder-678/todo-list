@@ -10,7 +10,7 @@ import getUrl from "../utilities/getUrl";
 import cutString from "../utilities/cutString";
 
 const useNews = () => {
-  // работает только локально news_api или mediaStack api
+  // news_api или mediaStack работают только при локальном запуске проекта
   const isNewsApi = true;
 
   return useQuery("news data", async () => {
