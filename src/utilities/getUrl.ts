@@ -13,7 +13,7 @@ import { getUrlProps } from "../types";
  *
  * @returns {string}
  */
-const getUrl = ({ protocol, host, path, options }: getUrlProps) => {
+const getUrl = ({ protocol, host, path, options }: getUrlProps): string => {
   const url = new URL(path, `${protocol}://${host}`);
   options.map(({ key, value }) => url.searchParams.set(key, value));
 

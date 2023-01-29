@@ -7,12 +7,14 @@ import lightThemePalette from "../constants/lightThemePalette";
 
 /**
  * @function getDesignTokens
- * @param {PaletteMode} mode - название цветовой палитры
+ *
  * @description возвращает набор цветовой палитры в зависимости от имени цветового режима
+ *
+ * @param {PaletteMode} mode - название цветовой палитры
  *
  * @returns {object}
  */
-const getDesignTokens = (mode: PaletteMode) => ({
+const getDesignTokens = (mode: PaletteMode): object => ({
   palette: {
     mode,
     common: {

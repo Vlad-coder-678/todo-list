@@ -22,10 +22,10 @@ const getPriorityColor = ({
   defaultPriorityColor,
 }: getPriorityColorProps): string => {
   switch (priority) {
-    case "high": return highPriorityColor; // theme.palette.error.main
-    case "normal": return normalPriorityColor; // theme.palette.info.main
-    case "low": return lowPriorityColor; // theme.palette.warning.main
-    default: return defaultPriorityColor; // theme.palette.success.main
+    case "high": return highPriorityColor;
+    case "normal": return normalPriorityColor;
+    case "low": return lowPriorityColor;
+    default: return defaultPriorityColor;
   }
 };
 
